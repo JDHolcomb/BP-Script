@@ -1,6 +1,6 @@
 #RPDataProcessing.py Python app to process Reck Peterson Lab Data in XLSX format
 #Author: James Holcomb
-#Last Revised: June 11, 2020
+#Last Revised: July 4th, 2020
 
 #Library imports
 import os                                   #imports functions for interacting with O/S - allows Command Line 
