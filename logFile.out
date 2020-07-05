@@ -1,0 +1,747 @@
+Processing Gene: O95678
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+KRT75 not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: O95678
+Processing Gene: Q9UPQ7
+From Matches: Possible Match: XP_663285.1 hypothetical protein AN5681.2 [Aspergillus nidulans FGSC A4]
+  EAA62774.1 hypothetical protein AN5681.2 [Aspergillus nidulans FGSC A4]
+  CBF81414.1 TPA: microbody (peroxisome) biogenesis protein peroxin 10 (Eurofung) 
+ [Aspergillus nidulans FGSC A4]
+ score: 56.2 e-value: 3e-08 positives: 39/76 gaps: 14/76
+Done Processing Sequence
+From Matches: Possible Match: XP_663565.1 hypothetical protein AN5961.2 [Aspergillus nidulans FGSC A4]
+  EAA57824.1 hypothetical protein AN5961.2 [Aspergillus nidulans FGSC A4]
+  CBF70476.1 TPA: ATP-dependent protease (CrgA), putative (AFU_orthologue; 
+ AFUA_2G10470) [Aspergillus nidulans FGSC A4]
+ score: 51.2 e-value: 2e-06 positives: 32/57 gaps: 1/57
+Done Processing Sequence
+From Matches: Possible Match: XP_659772.1 hypothetical protein AN2168.2 [Aspergillus nidulans FGSC A4]
+  EAA64212.1 hypothetical protein AN2168.2 [Aspergillus nidulans FGSC A4]
+  CBF86306.1 TPA: TRAF-like signal transducer, putative (AFU_orthologue; AFUA_2G15830) 
+ [Aspergillus nidulans FGSC A4]
+ score: 45.8 e-value: 6e-05 positives: 53/127 gaps: 10/127
+Done Processing Sequence
+From Matches: Possible Match: CBF81224.1 TPA: ATP-dependent DNA helicase (Eurofung) [Aspergillus nidulans 
+ FGSC A4]
+ score: 44.7 e-value: 0.0002 positives: 25/51 gaps: 1/51
+Done Processing Sequence
+From Matches: Possible Match: CAA89995.1 NUVA [Aspergillus nidulans]
+ score: 43.1 e-value: 0.0004 positives: 24/42 gaps: 1/42
+Done Processing Sequence
+From Matches: Possible Match: XP_680578.1 UVSH_EMENI Postreplication repair protein uvsH/nuvA [Aspergillus 
+ nidulans FGSC A4]
+  EAA61360.1 UVSH_EMENI Postreplication repair protein uvsH/nuvA [Aspergillus 
+ nidulans FGSC A4]
+ score: 43.1 e-value: 0.0004 positives: 24/42 gaps: 1/42
+Done Processing Sequence
+From Matches: Possible Match: Q02398.1 RecName: Full=Postreplication repair E3 ubiquitin-protein ligase 
+ rad18; AltName: Full=RING-type E3 ubiquitin transferase 
+ rad18 [Aspergillus nidulans FGSC A4]
+  AAB35098.1 UVSH [Emericella nidulans] [Aspergillus nidulans]
+  CBF78646.1 TPA: Postreplication repair E3 ubiquitin-protein ligase rad18 
+ (EC 6.3.2.-) [Source:UniProtKB/Swiss-Prot;Acc:Q02398] [Aspergillus 
+ nidulans FGSC A4]
+ score: 42.7 e-value: 0.0005 positives: 24/42 gaps: 1/42
+Done Processing Sequence
+From Matches: Possible Match: CAA90033.1 NUVA, partial [Aspergillus nidulans]
+ score: 42.4 e-value: 0.0006 positives: 24/42 gaps: 1/42
+Done Processing Sequence
+From Matches: Possible Match: XP_660032.1 hypothetical protein AN2428.2 [Aspergillus nidulans FGSC A4]
+  EAA64134.1 hypothetical protein AN2428.2 [Aspergillus nidulans FGSC A4]
+ score: 42.4 e-value: 0.001 positives: 32/63 gaps: 13/63
+Done Processing Sequence
+From Matches: Possible Match: CBF86833.1 TPA: SH3 domain protein (AFU_orthologue; AFUA_2G13880) [Aspergillus 
+ nidulans FGSC A4]
+ score: 40.8 e-value: 0.003 positives: 34/72 gaps: 13/72
+Done Processing Sequence
+From Matches: Possible Match: XP_659860.1 hypothetical protein AN2256.2 [Aspergillus nidulans FGSC A4]
+  EAA63829.1 hypothetical protein AN2256.2 [Aspergillus nidulans FGSC A4]
+  CBF86480.1 TPA: SNF2 family helicase, putative (AFU_orthologue; AFUA_5G06590) 
+ [Aspergillus nidulans FGSC A4]
+ score: 40.4 e-value: 0.003 positives: 24/46 gaps: 1/46
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+PDZRN3 not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: Q9UPQ7
+Done Processing Gene: Q9UPQ7
+Done Processing Gene: Q9UPQ7
+Done Processing Gene: Q9UPQ7
+Processing Gene: Q8N612
+From Matches: Possible Match: CBF69659.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+ A4]
+ score: 50.8 e-value: 2e-06 positives: 81/180 gaps: 17/180
+Done Processing Sequence
+From Matches: Possible Match: XP_663947.1 hypothetical protein AN6343.2 [Aspergillus nidulans FGSC A4]
+  EAA58727.1 hypothetical protein AN6343.2 [Aspergillus nidulans FGSC A4]
+ score: 50.8 e-value: 2e-06 positives: 81/180 gaps: 17/180
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+FAM160A2 not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: Q8N612
+Processing Gene: Q9UJC3
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+HOOK1 not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: Q9UJC3
+Processing Gene: O60333
+From Matches: Possible Match: XP_680816.1 hypothetical protein AN7547.2 [Aspergillus nidulans FGSC A4]
+  EAA62127.1 hypothetical protein AN7547.2 [Aspergillus nidulans FGSC A4]
+  CBF79609.1 TPA: kinesin family protein (AFU_orthologue; AFUA_2G14730) [Aspergillus 
+ nidulans FGSC A4]
+ score: 488.0 e-value: 1e-144 positives: 310/391 gaps: 22/391
+Done Processing Sequence
+From Matches: Possible Match:  score: 177.0 e-value: 2e-44 positives: 122/173 gaps: 7/173
+Done Processing Sequence
+From Matches: Possible Match:  score: 94.0 e-value: 3e-19 positives: 122/254 gaps: 22/254
+Done Processing Sequence
+From Matches: Possible Match:  score: 60.8 e-value: 5e-09 positives: 84/191 gaps: 19/191
+Done Processing Sequence
+From Matches: Possible Match:  score: 48.5 e-value: 2e-05 positives: 47/100 gaps: 11/100
+Done Processing Sequence
+From Matches: Possible Match: XP_664467.1 hypothetical protein AN6863.2 [Aspergillus nidulans FGSC A4]
+  EAA58262.1 hypothetical protein AN6863.2 [Aspergillus nidulans FGSC A4]
+  CBF71617.1 TPA: kineisn class 3 (Kif1/Unc-104 group) (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 360.0 e-value: 3e-108 positives: 251/366 gaps: 24/366
+Done Processing Sequence
+From Matches: Possible Match: XP_662947.1 hypothetical protein AN5343.2 [Aspergillus nidulans FGSC A4]
+  EAA62503.1 hypothetical protein AN5343.2 [Aspergillus nidulans FGSC A4]
+  CBF82067.1 TPA: Kinesin (KINA protein) [Source:UniProtKB/TrEMBL;Acc:Q9HES9] 
+ [Aspergillus nidulans FGSC A4]
+ score: 264.0 e-value: 4e-73 positives: 227/389 gaps: 38/389
+Done Processing Sequence
+From Matches: Possible Match: CAC19836.1 kinesin (KINA protein) [Aspergillus nidulans]
+ score: 263.0 e-value: 7e-73 positives: 227/389 gaps: 38/389
+Done Processing Sequence
+From Matches: Possible Match: XP_662117.1 hypothetical protein AN4513.2 [Aspergillus nidulans FGSC A4]
+  EAA60856.1 hypothetical protein AN4513.2 [Aspergillus nidulans FGSC A4]
+  CAF06507.1 kinesin motor protein [Aspergillus nidulans]
+  CBF77358.1 TPA: Kinesin motor proteinPutative uncharacterized protein; [Source:UniProtKB/TrEMBL;Acc:Q704T4] 
+ [Aspergillus nidulans FGSC 
+ A4]
+ score: 215.0 e-value: 4e-57 positives: 209/399 gaps: 69/399
+Done Processing Sequence
+From Matches: Possible Match: AAA33298.1 kinesin-like protein (bimC) [Aspergillus nidulans]
+ score: 214.0 e-value: 3e-56 positives: 208/392 gaps: 45/392
+Done Processing Sequence
+From Matches: Possible Match: XP_660967.1 BIMC_EMENI KINESIN-LIKE PROTEIN BIMC [Aspergillus nidulans FGSC 
+ A4]
+  P17120.2 RecName: Full=Kinesin-like protein bimC [Aspergillus nidulans 
+ FGSC A4]
+  EAA63331.1 BIMC_EMENI KINESIN-LIKE PROTEIN BIMC [Aspergillus nidulans FGSC 
+ A4]
+  CBF82860.1 TPA: Kinesin-like protein bimC [Source:UniProtKB/Swiss-Prot;Acc:P17120] 
+ [Aspergillus nidulans FGSC A4]
+ score: 214.0 e-value: 3e-56 positives: 209/394 gaps: 49/394
+Done Processing Sequence
+From Matches: Possible Match: XP_664479.1 hypothetical protein AN6875.2 [Aspergillus nidulans FGSC A4]
+  EAA58274.1 hypothetical protein AN6875.2 [Aspergillus nidulans FGSC A4]
+  CBF71640.1 TPA: kinesin class 4 (Chromokinesin/Kif4 group) (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 184.0 e-value: 9e-47 positives: 181/355 gaps: 66/355
+Done Processing Sequence
+From Matches: Possible Match: XP_663944.1 KLPA_EMENI KINESIN-LIKE PROTEIN KLPA [Aspergillus nidulans FGSC 
+ A4]
+  EAA58724.1 KLPA_EMENI KINESIN-LIKE PROTEIN KLPA [Aspergillus nidulans FGSC 
+ A4]
+ score: 179.0 e-value: 2e-46 positives: 191/362 gaps: 44/362
+Done Processing Sequence
+From Matches: Possible Match: P28739.3 RecName: Full=Kinesin-like protein klpA [Aspergillus nidulans 
+ FGSC A4]
+  CAA45887.1 KLPA [Aspergillus nidulans]
+  CBF69667.1 TPA: Kinesin-like protein klpA [Source:UniProtKB/Swiss-Prot;Acc:P28739] 
+ [Aspergillus nidulans FGSC A4]
+ score: 179.0 e-value: 3e-46 positives: 191/362 gaps: 44/362
+Done Processing Sequence
+From Matches: Possible Match: XP_681555.1 hypothetical protein AN8286.2 [Aspergillus nidulans FGSC A4]
+  EAA59024.1 hypothetical protein AN8286.2 [Aspergillus nidulans FGSC A4]
+ score: 175.0 e-value: 1e-44 positives: 189/364 gaps: 41/364
+Done Processing Sequence
+From Matches: Possible Match: CAF22223.1 kinesin-like protein [Aspergillus nidulans]
+  CBF74279.1 TPA: Kinesin-like protein [Source:UniProtKB/TrEMBL;Acc:Q703G7] 
+ [Aspergillus nidulans FGSC A4]
+ score: 175.0 e-value: 2e-44 positives: 189/364 gaps: 41/364
+Done Processing Sequence
+From Matches: Possible Match: XP_661325.1 hypothetical protein AN3721.2 [Aspergillus nidulans FGSC A4]
+  EAA59929.1 hypothetical protein AN3721.2 [Aspergillus nidulans FGSC A4]
+  CBF75533.1 TPA: kinesin class 10 (Kid group) (Eurofung) [Aspergillus nidulans 
+ FGSC A4]
+ score: 137.0 e-value: 4e-33 positives: 183/407 gaps: 79/407
+Done Processing Sequence
+From Matches: Possible Match: XP_660728.1 hypothetical protein AN3124.2 [Aspergillus nidulans FGSC A4]
+  EAA63695.1 hypothetical protein AN3124.2 [Aspergillus nidulans FGSC A4]
+  CBF83363.1 TPA: kinesin class 6 (MKLP1/Kif23 group) (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 81.6 e-value: 1e-15 positives: 111/251 gaps: 38/251
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+From Matches: Possible Match: XP_661574.1 hypothetical protein AN3970.2 [Aspergillus nidulans FGSC A4]
+  EAA59441.1 hypothetical protein AN3970.2 [Aspergillus nidulans FGSC A4]
+  CBF74981.1 TPA: kinesin class 13 (Kif2 group) (Eurofung) [Aspergillus nidulans 
+ FGSC A4]
+ score: 49.7 e-value: 7e-06 positives: 84/198 gaps: 21/198
+Done Processing Sequence
+From Matches: Possible Match:  score: 41.6 e-value: 0.002 positives: 61/140 gaps: 44/140
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+KIF1B not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: O60333
+Processing Gene: Q9Y6B7
+From Matches: Possible Match: XP_660633.1 hypothetical protein AN3029.2 [Aspergillus nidulans FGSC A4]
+  EAA63600.1 hypothetical protein AN3029.2 [Aspergillus nidulans FGSC A4]
+  CBF83537.1 TPA: AP-1 adaptor complex subunit beta, putative (AFU_orthologue; 
+ AFUA_3G08970) [Aspergillus nidulans FGSC A4]
+ score: 274.0 e-value: 2e-81 positives: 295/565 gaps: 30/565
+Done Processing Sequence
+From Matches: Possible Match: XP_663554.1 hypothetical protein AN5950.2 [Aspergillus nidulans FGSC A4]
+  EAA57813.1 hypothetical protein AN5950.2 [Aspergillus nidulans FGSC A4]
+ score: 231.0 e-value: 8e-66 positives: 266/503 gaps: 20/503
+Done Processing Sequence
+From Matches: Possible Match: CBF70501.1 TPA: AP-2 adaptor complex subunit beta, putative (AFU_orthologue; 
+ AFUA_2G10340) [Aspergillus nidulans FGSC A4]
+ score: 230.0 e-value: 9e-66 positives: 281/550 gaps: 21/550
+Done Processing Sequence
+From Matches: Possible Match: CBF90059.1 TPA: AP-3 adaptor complex subunit beta, putative (AFU_orthologue; 
+ AFUA_5G11360) [Aspergillus nidulans FGSC A4]
+ score: 126.0 e-value: 4e-30 positives: 215/501 gaps: 60/501
+Done Processing Sequence
+From Matches: Possible Match: XP_657769.1 hypothetical protein AN0165.2 [Aspergillus nidulans FGSC A4]
+  EAA66038.1 hypothetical protein AN0165.2 [Aspergillus nidulans FGSC A4]
+ score: 124.0 e-value: 2e-29 positives: 208/484 gaps: 60/484
+Done Processing Sequence
+From Matches: Possible Match: XP_658781.1 conserved hypothetical protein [Aspergillus nidulans FGSC A4]
+  EAA66295.1 conserved hypothetical protein [Aspergillus nidulans FGSC A4]
+  CBF87992.1 TPA: Coatomer subunit beta, putative (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 45.1 e-value: 9e-05 positives: 63/131 gaps: 9/131
+Done Processing Sequence
+From Matches: Possible Match: XP_661811.1 hypothetical protein AN4207.2 [Aspergillus nidulans FGSC A4]
+  EAA59306.1 hypothetical protein AN4207.2 [Aspergillus nidulans FGSC A4]
+  CBF74480.1 TPA: AP-1 adaptor complex subunit gamma, putative (AFU_orthologue; 
+ AFUA_1G06030) [Aspergillus nidulans FGSC A4]
+ score: 44.3 e-value: 0.0002 positives: 231/590 gaps: 63/590
+Done Processing Sequence
+From Matches: Possible Match: XP_662151.1 hypothetical protein AN4547.2 [Aspergillus nidulans FGSC A4]
+  EAA60890.1 hypothetical protein AN4547.2 [Aspergillus nidulans FGSC A4]
+ score: 43.9 e-value: 0.0002 positives: 89/198 gaps: 13/198
+Done Processing Sequence
+From Matches: Possible Match: CBF77281.1 TPA: Coatomer subunit gamma, putative (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 43.9 e-value: 0.0002 positives: 89/198 gaps: 13/198
+Done Processing Sequence
+AP4B1 not a match.
+Done Processing Sequence
+AP4B1 not a match.
+Done Processing Sequence
+AP4B1 not a match.
+Done Processing Sequence
+AP4B1 not a match.
+Done Processing Sequence
+AP4B1 not a match.
+Done Processing Sequence
+AP4B1 not a match.
+Done Processing Sequence
+AP4B1 not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: Q9Y6B7
+Processing Gene: Q86VS8
+From Matches: Possible Match: XP_662730.1 hypothetical protein AN5126.2 [Aspergillus nidulans FGSC A4]
+  EAA62307.1 hypothetical protein AN5126.2 [Aspergillus nidulans FGSC A4]
+  CBF80909.1 TPA: microtubule binding protein HOOK3, putative (AFU_orthologue; 
+ AFUA_1G07490) [Aspergillus nidulans FGSC A4]
+ score: 46.2 e-value: 3e-05 positives: 85/189 gaps: 35/189
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+HOOK3 not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: Q86VS8
+Processing Gene: Q9H6D7
+HAUS4 not a match.
+Done Processing Sequence
+HAUS4 not a match.
+Done Processing Sequence
+HAUS4 not a match.
+Done Processing Sequence
+HAUS4 not a match.
+Done Processing Sequence
+HAUS4 not a match.
+Done Processing Sequence
+HAUS4 not a match.
+Done Processing Sequence
+HAUS4 not a match.
+Done Processing Sequence
+HAUS4 not a match.
+Done Processing Sequence
+HAUS4 not a match.
+Done Processing Sequence
+HAUS4 not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: Q9H6D7
+Processing Gene: Q70EL1
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+USP54 not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: Q70EL1
+Processing Gene: Q05DH4
+From Matches: Possible Match: XP_663947.1 hypothetical protein AN6343.2 [Aspergillus nidulans FGSC A4]
+  EAA58727.1 hypothetical protein AN6343.2 [Aspergillus nidulans FGSC A4]
+ score: 48.5 e-value: 1e-05 positives: 136/320 gaps: 41/320
+Done Processing Sequence
+From Matches: Possible Match: CBF69659.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+ A4]
+ score: 47.8 e-value: 2e-05 positives: 136/320 gaps: 41/320
+Done Processing Sequence
+FAM160A1 not a match.
+Done Processing Sequence
+FAM160A1 not a match.
+Done Processing Sequence
+FAM160A1 not a match.
+Done Processing Sequence
+FAM160A1 not a match.
+Done Processing Sequence
+FAM160A1 not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: Q05DH4
+Processing Gene: O94788
+From Matches: Possible Match: XP_658158.1 DHAL_EMENI Aldehyde dehydrogenase (ALDDH) [Aspergillus nidulans 
+ FGSC A4]
+  P08157.2 RecName: Full=Aldehyde dehydrogenase; Short=ALDDH; Short=ALDH 
+ [Aspergillus nidulans FGSC A4]
+  AAK18072.1 aldehyde dehydrogenase ALDH [Aspergillus nidulans]
+  EAA66653.1 DHAL_EMENI Aldehyde dehydrogenase (ALDDH) [Aspergillus nidulans 
+ FGSC A4]
+  CBF89245.1 TPA: Aldehyde dehydrogenase (ALDDH)(ALDH)(EC 1.2.1.3) [Source:UniProtKB/Swiss-Prot;Acc:P08157] 
+ [Aspergillus nidulans FGSC 
+ A4]
+ score: 547.0 e-value: 0.0 positives: 356/482 gaps: 6/482
+Done Processing Sequence
+From Matches: Possible Match: AAK18073.1 aldehyde dehydrogenase ALDH15 [Aspergillus nidulans]
+ score: 545.0 e-value: 0.0 positives: 355/482 gaps: 6/482
+Done Processing Sequence
+From Matches: Possible Match: AAK18074.1 aldehyde dehydrogenase ALDH57 [Aspergillus nidulans]
+ score: 545.0 e-value: 0.0 positives: 355/482 gaps: 6/482
+Done Processing Sequence
+From Matches: Possible Match: AAA33293.1 aldehyde dehydrogenase [Aspergillus nidulans]
+ score: 542.0 e-value: 0.0 positives: 355/482 gaps: 6/482
+Done Processing Sequence
+From Matches: Possible Match: XP_659293.1 hypothetical protein AN1689.2 [Aspergillus nidulans FGSC A4]
+  EAA64809.1 hypothetical protein AN1689.2 [Aspergillus nidulans FGSC A4]
+  CBF85372.1 TPA: aldehyde dehydrogenase family (Eurofung) [Aspergillus nidulans 
+ FGSC A4]
+ score: 496.0 e-value: 4e-173 positives: 334/502 gaps: 7/502
+Done Processing Sequence
+From Matches: Possible Match: XP_661730.1 hypothetical protein AN4126.2 [Aspergillus nidulans FGSC A4]
+  EAA59387.1 hypothetical protein AN4126.2 [Aspergillus nidulans FGSC A4]
+  CBF74652.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+ A4]
+ score: 459.0 e-value: 4e-158 positives: 329/476 gaps: 10/476
+Done Processing Sequence
+From Matches: Possible Match: XP_682303.1 hypothetical protein AN9034.2 [Aspergillus nidulans FGSC A4]
+  EAA64366.1 hypothetical protein AN9034.2 [Aspergillus nidulans FGSC A4]
+  CBF84421.1 TPA: aldehyde dehydrogenase ALDH (AFU_orthologue; AFUA_8G02310) 
+ [Aspergillus nidulans FGSC A4]
+ score: 443.0 e-value: 7e-152 positives: 327/515 gaps: 23/515
+Done Processing Sequence
+From Matches: Possible Match: XP_661658.1 hypothetical protein AN4054.2 [Aspergillus nidulans FGSC A4]
+  EAA59525.1 hypothetical protein AN4054.2 [Aspergillus nidulans FGSC A4]
+  CBF74799.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+ A4]
+ score: 366.0 e-value: 3e-122 positives: 290/479 gaps: 13/479
+Done Processing Sequence
+From Matches: Possible Match: XP_663039.1 hypothetical protein AN5435.2 [Aspergillus nidulans FGSC A4]
+  EAA62595.1 hypothetical protein AN5435.2 [Aspergillus nidulans FGSC A4]
+  CBF81915.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+ A4]
+ score: 358.0 e-value: 5e-119 positives: 256/406 gaps: 6/406
+Done Processing Sequence
+From Matches: Possible Match: CBF75291.1 TPA: succinate-semialdehyde dehydrogenase (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 321.0 e-value: 3e-104 positives: 284/501 gaps: 13/501
+Done Processing Sequence
+From Matches: Possible Match: XP_661433.1 hypothetical protein AN3829.2 [Aspergillus nidulans FGSC A4]
+  EAA59094.1 hypothetical protein AN3829.2 [Aspergillus nidulans FGSC A4]
+ score: 311.0 e-value: 1e-100 positives: 284/515 gaps: 27/515
+Done Processing Sequence
+From Matches: Possible Match: XP_659034.1 hypothetical protein AN1430.2 [Aspergillus nidulans FGSC A4]
+  EAA64560.1 hypothetical protein AN1430.2 [Aspergillus nidulans FGSC A4]
+  CBF84842.1 TPA: betaine aldehyde dehydrogenase (BadH), putative (AFU_orthologue; 
+ AFUA_8G04080) [Aspergillus nidulans FGSC A4]
+ score: 307.0 e-value: 4e-99 positives: 268/493 gaps: 17/493
+Done Processing Sequence
+From Matches: Possible Match: XP_658344.1 hypothetical protein AN0740.2 [Aspergillus nidulans FGSC A4]
+  EAA65382.1 hypothetical protein AN0740.2 [Aspergillus nidulans FGSC A4]
+  CBF88877.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+ A4]
+ score: 289.0 e-value: 2e-92 positives: 251/469 gaps: 14/469
+Done Processing Sequence
+From Matches: Possible Match: XP_680584.1 hypothetical protein AN7315.2 [Aspergillus nidulans FGSC A4]
+  EAA61366.1 hypothetical protein AN7315.2 [Aspergillus nidulans FGSC A4]
+  CBF78632.1 TPA: succinate-semialdehyde dehydrogenase (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 290.0 e-value: 2e-92 positives: 256/479 gaps: 11/479
+Done Processing Sequence
+From Matches: Possible Match: CBF90243.1 TPA: succinate semialdehyde dehydrogenase (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 288.0 e-value: 8e-92 positives: 269/495 gaps: 16/495
+Done Processing Sequence
+From Matches: Possible Match: XP_662424.1 hypothetical protein AN4820.2 [Aspergillus nidulans FGSC A4]
+  EAA60390.1 hypothetical protein AN4820.2 [Aspergillus nidulans FGSC A4]
+  CBF76711.1 TPA: succinate semialdehyde dehydrogenase (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 278.0 e-value: 9e-88 positives: 272/500 gaps: 11/500
+Done Processing Sequence
+From Matches: Possible Match: XP_657683.1 hypothetical protein AN0079.2 [Aspergillus nidulans FGSC A4]
+  EAA65257.1 hypothetical protein AN0079.2 [Aspergillus nidulans FGSC A4]
+ score: 286.0 e-value: 2e-86 positives: 271/499 gaps: 24/499
+Done Processing Sequence
+From Matches: Possible Match: XP_682467.1 hypothetical protein AN9198.2 [Aspergillus nidulans FGSC A4]
+  EAA61489.1 hypothetical protein AN9198.2 [Aspergillus nidulans FGSC A4]
+  CBF82342.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+ A4]
+ score: 273.0 e-value: 4e-86 positives: 242/456 gaps: 9/456
+Done Processing Sequence
+From Matches: Possible Match: CBF75857.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+ A4]
+ score: 270.0 e-value: 2e-85 positives: 235/456 gaps: 40/456
+Done Processing Sequence
+From Matches: Possible Match: CBF76640.1 TPA: aldehyde dehydrogenase family protein, putative (AFU_orthologue; 
+ AFUA_3G03250) [Aspergillus nidulans FGSC A4]
+ score: 268.0 e-value: 3e-84 positives: 237/473 gaps: 10/473
+Done Processing Sequence
+From Matches: Possible Match: XP_661177.1 hypothetical protein AN3573.2 [Aspergillus nidulans FGSC A4]
+  EAA59781.1 hypothetical protein AN3573.2 [Aspergillus nidulans FGSC A4]
+ score: 265.0 e-value: 2e-83 positives: 235/458 gaps: 42/458
+Done Processing Sequence
+From Matches: Possible Match: XP_660809.1 hypothetical protein AN3205.2 [Aspergillus nidulans FGSC A4]
+  EAA62930.1 hypothetical protein AN3205.2 [Aspergillus nidulans FGSC A4]
+  CBF83194.1 TPA: aldehyde dehydrogenase, putative (AFU_orthologue; AFUA_4G02830) 
+ [Aspergillus nidulans FGSC A4]
+ score: 259.0 e-value: 4e-81 positives: 238/459 gaps: 19/459
+Done Processing Sequence
+From Matches: Possible Match: XP_662451.1 hypothetical protein AN4847.2 [Aspergillus nidulans FGSC A4]
+  EAA60082.1 hypothetical protein AN4847.2 [Aspergillus nidulans FGSC A4]
+ score: 268.0 e-value: 6e-81 positives: 233/460 gaps: 8/460
+Done Processing Sequence
+From Matches: Possible Match: XP_659189.1 hypothetical protein AN1585.2 [Aspergillus nidulans FGSC A4]
+  EAA64292.1 hypothetical protein AN1585.2 [Aspergillus nidulans FGSC A4]
+  CBF85164.1 TPA: succinate semialdehyde dehydrogenase (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 258.0 e-value: 5e-80 positives: 248/460 gaps: 10/460
+Done Processing Sequence
+From Matches: Possible Match: XP_661195.1 hypothetical protein AN3591.2 [Aspergillus nidulans FGSC A4]
+  EAA59799.1 hypothetical protein AN3591.2 [Aspergillus nidulans FGSC A4]
+  CBF75821.1 TPA: methylmalonate-semialdehyde dehydrogenase, putative (AFU_orthologue; 
+ AFUA_4G12870) [Aspergillus nidulans FGSC A4]
+ score: 215.0 e-value: 2e-63 positives: 239/486 gaps: 24/486
+Done Processing Sequence
+From Matches: Possible Match: XP_659145.1 hypothetical protein AN1541.2 [Aspergillus nidulans FGSC A4]
+  EAA64248.1 hypothetical protein AN1541.2 [Aspergillus nidulans FGSC A4]
+  CBF85073.1 TPA: aldehyde dehydrogenase family protein (AFU_orthologue; AFUA_8G05520) 
+ [Aspergillus nidulans FGSC A4]
+ score: 211.0 e-value: 1e-62 positives: 239/499 gaps: 32/499
+Done Processing Sequence
+From Matches: Possible Match: XP_661654.1 hypothetical protein AN4050.2 [Aspergillus nidulans FGSC A4]
+  EAA59521.1 hypothetical protein AN4050.2 [Aspergillus nidulans FGSC A4]
+  CBF74807.1 TPA: cytoplasmic aldehyde dehydrogenase (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 203.0 e-value: 2e-59 positives: 239/479 gaps: 22/479
+Done Processing Sequence
+From Matches: Possible Match: CBF78991.1 TPA: aldehyde dehydrogenase (NAD) family protein (Eurofung) [Aspergillus 
+ nidulans FGSC A4]
+ score: 196.0 e-value: 3e-57 positives: 220/464 gaps: 20/464
+Done Processing Sequence
+From Matches: Possible Match: XP_664745.1 hypothetical protein AN7141.2 [Aspergillus nidulans FGSC A4]
+  EAA61393.1 hypothetical protein AN7141.2 [Aspergillus nidulans FGSC A4]
+ score: 190.0 e-value: 6e-55 positives: 220/468 gaps: 24/468
+Done Processing Sequence
+From Matches: Possible Match: XP_664240.1 hypothetical protein AN6636.2 [Aspergillus nidulans FGSC A4]
+  EAA58165.1 hypothetical protein AN6636.2 [Aspergillus nidulans FGSC A4]
+  CBF71144.1 TPA: oxidoreductase (Msc7), putative (AFU_orthologue; AFUA_6G03770) 
+ [Aspergillus nidulans FGSC A4]
+ score: 185.0 e-value: 8e-52 positives: 234/488 gaps: 44/488
+Done Processing Sequence
+From Matches: Possible Match: AAF72527.1 delta-1-pyrroline-5-carboxylate dehydrogenase [Aspergillus nidulans]
+ score: 155.0 e-value: 3e-41 positives: 213/465 gaps: 29/465
+Done Processing Sequence
+From Matches: Possible Match: XP_659337.1 PUT2_EMENI Delta-1-pyrroline-5-carboxylate dehydrogenase, mitochondrial 
+ precursor (P5C dehydrogenase) [Aspergillus nidulans 
+ FGSC A4]
+  Q9P8I0.2 RecName: Full=Delta-1-pyrroline-5-carboxylate dehydrogenase, 
+ mitochondrial; Short=P5C dehydrogenase; AltName: Full=L-glutamate 
+ gamma-semialdehyde dehydrogenase; Flags: Precursor [Aspergillus 
+ nidulans FGSC A4]
+  EAA64019.1 PUT2_EMENI Delta-1-pyrroline-5-carboxylate dehydrogenase, mitochondrial 
+ precursor (P5C dehydrogenase) [Aspergillus nidulans 
+ FGSC A4]
+  CBF85458.1 TPA: Delta-1-pyrroline-5-carboxylate dehydrogenase, mitochondrial 
+ Precursor (P5C dehydrogenase)(EC 1.5.1.12) [Source:UniProtKB/Swiss-Prot;Acc:Q9P8I0] 
+ [Aspergillus nidulans FGSC A4]
+ score: 155.0 e-value: 3e-41 positives: 213/465 gaps: 29/465
+Done Processing Sequence
+From Matches: Possible Match: XP_682547.1 hypothetical protein AN9278.2 [Aspergillus nidulans FGSC A4]
+  EAA66345.1 hypothetical protein AN9278.2 [Aspergillus nidulans FGSC A4]
+  CBF87318.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+ A4]
+ score: 122.0 e-value: 8e-30 positives: 231/521 gaps: 45/521
+Done Processing Sequence
+From Matches: Possible Match: XP_682254.1 hypothetical protein AN8985.2 [Aspergillus nidulans FGSC A4]
+  EAA64317.1 hypothetical protein AN8985.2 [Aspergillus nidulans FGSC A4]
+  CBF84515.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+ A4]
+ score: 114.0 e-value: 2e-27 positives: 160/345 gaps: 17/345
+Done Processing Sequence
+From Matches: Possible Match: CBF81490.1 TPA: aldehyde dehydrogenase, putative (AFU_orthologue; AFUA_4G13500) 
+ [Aspergillus nidulans FGSC A4]
+ score: 109.0 e-value: 7e-26 positives: 143/318 gaps: 23/318
+Done Processing Sequence
+From Matches: Possible Match: XP_663248.1 hypothetical protein AN5644.2 [Aspergillus nidulans FGSC A4]
+  EAA62737.1 hypothetical protein AN5644.2 [Aspergillus nidulans FGSC A4]
+ score: 109.0 e-value: 8e-26 positives: 143/318 gaps: 23/318
+Done Processing Sequence
+From Matches: Possible Match: AAK18075.1 truncated aldehyde dehydrogenase ALDH67 [Aspergillus nidulans]
+ score: 82.0 e-value: 6e-19 positives: 74/121 gaps: 6/121
+Done Processing Sequence
+ALDH1A2 not a match.
+Done Processing Sequence
+ALDH1A2 not a match.
+Done Processing Sequence
+ALDH1A2 not a match.
+Done Processing Sequence
+ALDH1A2 not a match.
+Done Processing Sequence
+ALDH1A2 not a match.
+Done Processing Sequence
+ALDH1A2 not a match.
+Done Processing Sequence
+ALDH1A2 not a match.
+Done Processing Sequence
+Done Processing Sequence
+Done Processing Gene: O94788

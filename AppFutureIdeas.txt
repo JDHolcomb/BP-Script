@@ -1,0 +1,59 @@
+Things to explore:
+Easy and now:
+- Check data against Adriana's
+- Change name of Processed Data Sheet to include name of sheet being processed (especially important if you are processing other sheets)
+- might want to skip significant table check because not using anything in table
+- save output file after every sequence is complete - in case of crash or if you want to terminate early and still have processed data
+- make it so can input row of data sheet to start (and to end?) with
+- update output to log file to only have what you want in it and maybe to output info for genes that didn't have anything in the first cell or weren't "highlighted"
+
+Priority:
+- explore how to run program for other people - web-based, standalone program (some info below)
+- make sure blastp data from file matches online results (and if not - why not?
+- do you need to put in a wait on blastp submissions (or are there any parameters that need changing) - might have to check when it is being run and have a weekend/night mode vs. daytime during week.
+- combining input/output files (leaving separate data process sheet)- and how frequently to save
+- check program flow and make sure matchTxts work for all situations
+
+Longer Term but important:
+- figure out if want to switch to local blastp command or third party vs. command line blastp
+- Making app a webpage to configure and run from (Ryan can help with this, he has made web pages)
+- increase parameter options for FASTA and blastp (find out which ones would actually be used - no point in making whizbang if no one will use)
+- user input for foldCheck, pValueCheck, scoreMin, and eValueMax
+- user input for data path, workbook, worksheet... (and temp files?)
+- choices about what is run (in case people only want FASTA...)
+- Efficiency
+- making functional/Object Oriented 
+
+
+Aspirational:
+- display results and let user sort/search
+- currently FASTA is read in as a file - not sure if that is most efficient
+- currently blastp is output as a file - not sure if that is the most efficient
+- figure out why command line blastp needed to be bookended with regular commands
+- Could avoid using excel spreadsheets by reading and writing CSV files
+
+----------------------------------------
+You need Python to be on the machine where you’d like to run a Python script, but Python doesn’t need to be installed, just present on the machine. On the top of my head, you have two options:
+
+Pack your script into an exe-file or app (for mac) with py2exe or similar.
+Just copy a Conda Python environment (or similar) to the new machine… it won’t be in the system PATH, meaning that you’ll have to specify the full path to the Python interpreter when calling the script from the command line.
+
+Yes you can write them and run them on a cloud based Python interpreter.
+
+Host, run, and code Python in the cloud: PythonAnywhere
+
+Google Colaboratory
+
+To name a few.
+
+608 views · View 2 Upvoters
+John Lynch
+John Lynch, Design and built hardware, Assembler, C, C++, Python & more
+Answered May 25, 2017
+Just to add another way. Cython (compiled Python) can produce a standalone executable.
+
+If you put Cython headers (2 lines) at the top of your Python code and add an if __name__ == "__main__": to the bottom to call a function, you can then cythonize it and compile it to C.
+
+That will produce an executable version of the code that embeds the required Python modules and typically runs 2–3 times faster than Python normally would.
+
+
