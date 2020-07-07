@@ -34,7 +34,7 @@ uniprotURLString1 = "https://www.uniprot.org/uniprot/?query="
 uniprotURLString2 = "&fil=organism:\"Homo+sapiens+(Human)+[9606]\"&sort=score&columns=id&format=tab"  
 fastaURLString1 = "https://www.uniprot.org/uniprot/"
 fastaURLString2 = ".fasta"
-blastpQuery = 'cmd /c "dir & blastp -db nr -query ' + outDir + currentFastaFile + ' -entrez_query \"Aspergillus Nidulans[ORGN]\" -out ' + outDir + blastpFile + ' -remote & dir"'
+blastpQuery = 'cmd /c "dir & blastp -db nr -query "' + outDir + currentFastaFile + '" -entrez_query \"Aspergillus Nidulans[ORGN]\" -out "' + outDir + blastpFile + '" -remote & dir"'
 print ("new bp query is " + blastpQuery)
 #Hard-coded Parameters used later in App
 foldCheck = 1.6     #foldCheck and pvalueCheck are the conditional formatting for the highlighting of cells
