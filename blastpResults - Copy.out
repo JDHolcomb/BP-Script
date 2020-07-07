@@ -1,0 +1,634 @@
+BLASTP 2.10.1+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics: Alejandro A. Schaffer,
+L. Aravind, Thomas L. Madden, Sergei Shavirin, John L. Spouge, Yuri
+I. Wolf, Eugene V. Koonin, and Stephen F. Altschul (2001),
+"Improving the accuracy of PSI-BLAST protein database searches with
+composition-based statistics and other refinements", Nucleic Acids
+Res. 29:2994-3005.
+
+
+
+Database: All non-redundant GenBank CDS translations+PDB+SwissProt+PIR+PRF
+excluding environmental samples from WGS projects
+           294,334,669 sequences; 105,960,238,061 total letters
+
+
+
+Query= sp|Q9UPQ7|PZRN3_HUMAN E3 ubiquitin-protein ligase PDZRN3 OS=Homo
+sapiens OX=9606 GN=PDZRN3 PE=1 SV=2
+
+Length=1066
+
+RID: G7PCFVX8014
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+XP_663285.1 hypothetical protein AN5681.2 [Aspergillus nidulans F...  56.2    3e-08
+XP_663565.1 hypothetical protein AN5961.2 [Aspergillus nidulans F...  51.2    2e-06
+XP_659772.1 hypothetical protein AN2168.2 [Aspergillus nidulans F...  45.8    6e-05
+CBF81224.1 TPA: ATP-dependent DNA helicase (Eurofung) [Aspergillu...  44.7    2e-04
+XP_680578.1 UVSH_EMENI Postreplication repair protein uvsH/nuvA [...  43.1    4e-04
+Q02398.1 RecName: Full=Postreplication repair E3 ubiquitin-protei...  42.7    5e-04
+CAA90033.1 NUVA [Aspergillus nidulans]                                42.4    6e-04
+XP_660032.1 hypothetical protein AN2428.2 [Aspergillus nidulans F...  42.4    0.001
+CBF86833.1 TPA: SH3 domain protein (AFU_orthologue; AFUA_2G13880)...  40.8    0.003
+XP_659860.1 hypothetical protein AN2256.2 [Aspergillus nidulans F...  40.4    0.003
+CBF90320.1 TPA: conserved hypothetical protein [Aspergillus nidul...  38.5    0.004
+XP_681024.1 hypothetical protein AN7755.2 [Aspergillus nidulans F...  39.3    0.006
+CBF78678.1 TPA: PHD and RING finger domain protein, putative (AFU...  37.4    0.028
+XP_680563.1 hypothetical protein AN7294.2 [Aspergillus nidulans F...  37.0    0.038
+XP_681970.1 hypothetical protein AN8701.2 [Aspergillus nidulans F...  37.0    0.044
+XP_663653.1 hypothetical protein AN6049.2 [Aspergillus nidulans F...  35.8    0.078
+XP_664498.1 hypothetical protein AN6894.2 [Aspergillus nidulans F...  35.4    0.099
+XP_868803.1 hypothetical protein AN9421.2 [Aspergillus nidulans F...  35.0    0.12 
+XP_662983.1 hypothetical protein AN5379.2 [Aspergillus nidulans F...  33.1    0.46 
+XP_658413.1 hypothetical protein AN0809.2 [Aspergillus nidulans F...  33.1    0.64 
+XP_659513.1 hypothetical protein AN1909.2 [Aspergillus nidulans F...  32.3    0.69 
+XP_662241.1 hypothetical protein AN4637.2 [Aspergillus nidulans F...  32.7    0.72 
+CBF69910.1 TPA: RING finger domain protein, putative (AFU_ortholo...  32.3    1.0  
+XP_660922.1 hypothetical protein AN3318.2 [Aspergillus nidulans F...  32.3    1.1  
+XP_680575.1 hypothetical protein AN7306.2 [Aspergillus nidulans F...  31.6    1.9  
+XP_663087.1 hypothetical protein AN5483.2 [Aspergillus nidulans F...  31.6    1.9  
+XP_659795.1 hypothetical protein AN2191.2 [Aspergillus nidulans F...  30.4    3.3  
+CBF88903.1 TPA: RING zinc finger protein, putative (AFU_orthologu...  30.4    4.1  
+XP_659092.1 hypothetical protein AN1488.2 [Aspergillus nidulans F...  30.4    4.5  
+CBF82857.1 TPA: anaphase promoting complex subunit Apc11, putativ...  28.5    4.5  
+XP_682077.1 hypothetical protein AN8808.2 [Aspergillus nidulans F...  29.6    5.0  
+XP_659505.1 hypothetical protein AN1901.2 [Aspergillus nidulans F...  29.6    7.3  
+AAF79204.1 cytochrome P450 sterol 14 alpha-demethylase [Aspergill...  29.3    7.9  
+XP_659353.1 hypothetical protein AN1749.2 [Aspergillus nidulans F...  29.3    9.0  
+
+
+>XP_663285.1 hypothetical protein AN5681.2 [Aspergillus nidulans FGSC A4]
+ EAA62774.1 hypothetical protein AN5681.2 [Aspergillus nidulans FGSC A4]
+ CBF81414.1 TPA: microbody (peroxisome) biogenesis protein peroxin 10 (Eurofung) 
+[Aspergillus nidulans FGSC A4]
+Length=373
+
+ Score = 56.2 bits (134),  Expect = 3e-08, Method: Compositional matrix adjust.
+ Identities = 31/76 (41%), Positives = 39/76 (51%), Gaps = 14/76 (18%)
+
+Query  7    RFDGDVDPDL----------KCALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARC  56
+            R+D   DP+           KC LC +  +DP  T CGHVFC  CV  WV ++  CP  C
+Sbjct  301  RYDLSEDPNAIPWIPDGQQRKCTLCLESFKDPSVTTCGHVFCWTCVCDWVREKPECPL-C  359
+
+Query  57   RGRLSAKELNHVLPLK  72
+            R  L A +   VLPL+
+Sbjct  360  RQELLASK---VLPLR  372
+
+
+>XP_663565.1 hypothetical protein AN5961.2 [Aspergillus nidulans FGSC A4]
+ EAA57824.1 hypothetical protein AN5961.2 [Aspergillus nidulans FGSC A4]
+ CBF70476.1 TPA: ATP-dependent protease (CrgA), putative (AFU_orthologue; 
+AFUA_2G10470) [Aspergillus nidulans FGSC A4]
+Length=623
+
+ Score = 51.2 bits (121),  Expect = 2e-06, Method: Compositional matrix adjust.
+ Identities = 23/57 (40%), Positives = 32/57 (56%), Gaps = 1/57 (2%)
+
+Query  5    LDRFDGDVDPDLKCALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCRGRLS  61
+            L +    V  +L C +C+ ++ DPLTTPCGH FC  CV   +     CP  CR +L+
+Sbjct  191  LTKLRATVRNELDCQVCYSLILDPLTTPCGHTFCRRCVAMALSHSNLCPI-CRRKLN  246
+
+
+>XP_659772.1 hypothetical protein AN2168.2 [Aspergillus nidulans FGSC A4]
+ EAA64212.1 hypothetical protein AN2168.2 [Aspergillus nidulans FGSC A4]
+ CBF86306.1 TPA: TRAF-like signal transducer, putative (AFU_orthologue; AFUA_2G15830) 
+[Aspergillus nidulans FGSC A4]
+Length=434
+
+ Score = 45.8 bits (107),  Expect = 6e-05, Method: Compositional matrix adjust.
+ Identities = 32/127 (25%), Positives = 53/127 (42%), Gaps = 10/127 (8%)
+
+Query  8    FDGDVDPDLKCALCHKVLEDPLTTPCGHVFCAGCVLPWVVQ-------EGSCPARCRGRL  60
+            +  D D  L C +CH     P+   C HVFC  C L + ++       + +CP  CR   
+Sbjct  26   YISDYDDHLMCPICHCPFIRPVRLGCDHVFCQTC-LNFAIRTFAPGRDDFTCPT-CRTPT  83
+
+Query  61   SAKELNHVLPLKRLILKLDIKCAYATRGCGRVVKLQQLPEHLER-CDFAPARCRHAGCGQ  119
+                LN    L  +   L ++C ++  GC  VV    +  H ++ C +    C    C +
+Sbjct  84   RDVYLNVPRLLNNMCDDLPVRCPFSPEGCKEVVPRGHIQSHADKYCRYKLMDCPSPSCDE  143
+
+Query  120  VLLRRDV  126
+               ++D+
+Sbjct  144  KTRKKDL  150
+
+
+>CBF81224.1 TPA: ATP-dependent DNA helicase (Eurofung) [Aspergillus nidulans 
+FGSC A4]
+Length=1415
+
+ Score = 44.7 bits (104),  Expect = 2e-04, Method: Compositional matrix adjust.
+ Identities = 17/51 (33%), Positives = 25/51 (49%), Gaps = 1/51 (2%)
+
+Query  18    CALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCRGRLSAKELNHV  68
+             C +C    E  + T CGH +C  C+  W  Q  +CP  C+ RL A +   +
+Sbjct  1067  CIICQGTFEIGVLTVCGHKYCKDCLRLWWRQHRTCPV-CKKRLGANDFYQI  1116
+
+
+>XP_680578.1 UVSH_EMENI Postreplication repair protein uvsH/nuvA [Aspergillus 
+nidulans FGSC A4]
+ EAA61360.1 UVSH_EMENI Postreplication repair protein uvsH/nuvA [Aspergillus 
+nidulans FGSC A4]
+Length=450
+
+ Score = 43.1 bits (100),  Expect = 4e-04, Method: Compositional matrix adjust.
+ Identities = 16/42 (38%), Positives = 24/42 (57%), Gaps = 1/42 (2%)
+
+Query  16  LKCALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCR  57
+           L+C +C    ++P+ T C H FC+ C+   +  EG CP  CR
+Sbjct  28  LRCQVCKDFFDNPVITSCSHTFCSLCIRRCLSTEGKCPT-CR  68
+
+
+>Q02398.1 RecName: Full=Postreplication repair E3 ubiquitin-protein ligase 
+rad18; AltName: Full=RING-type E3 ubiquitin transferase 
+rad18 [Aspergillus nidulans FGSC A4]
+ AAB35098.1 UVSH [Emericella nidulans] [Aspergillus nidulans]
+ CBF78646.1 TPA: Postreplication repair E3 ubiquitin-protein ligase rad18 
+(EC 6.3.2.-) [Source:UniProtKB/Swiss-Prot;Acc:Q02398] [Aspergillus 
+nidulans FGSC A4]
+Length=443
+
+ Score = 42.7 bits (99),  Expect = 5e-04, Method: Compositional matrix adjust.
+ Identities = 16/42 (38%), Positives = 24/42 (57%), Gaps = 1/42 (2%)
+
+Query  16  LKCALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCR  57
+           L+C +C    ++P+ T C H FC+ C+   +  EG CP  CR
+Sbjct  28  LRCQVCKDFFDNPVITSCSHTFCSLCIRRCLSTEGKCPT-CR  68
+
+
+>CAA90033.1 NUVA, partial [Aspergillus nidulans]
+Length=356
+
+ Score = 42.4 bits (98),  Expect = 6e-04, Method: Compositional matrix adjust.
+ Identities = 16/42 (38%), Positives = 24/42 (57%), Gaps = 1/42 (2%)
+
+Query  16  LKCALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCR  57
+           L+C +C    ++P+ T C H FC+ C+   +  EG CP  CR
+Sbjct  28  LRCQVCKDFFDNPVITSCSHTFCSLCIRRCLSTEGKCPT-CR  68
+
+
+>XP_660032.1 hypothetical protein AN2428.2 [Aspergillus nidulans FGSC A4]
+ EAA64134.1 hypothetical protein AN2428.2 [Aspergillus nidulans FGSC A4]
+Length=1396
+
+ Score = 42.4 bits (98),  Expect = 0.001, Method: Compositional matrix adjust.
+ Identities = 21/63 (33%), Positives = 32/63 (51%), Gaps = 13/63 (21%)
+
+Query  10   GDVDPDLKCALCHKVLEDPLT-TPCGHVFCAGCVLPWVVQEGS-----------CPARCR  57
+            GD++ +L C++C ++L  PLT   C H FC  C+  W   + S           CP+ CR
+Sbjct  494  GDLEKELTCSICTELLFQPLTLLDCLHTFCGSCLKEWFYTQASRRPSTTTPRYTCPS-CR  552
+
+Query  58   GRL  60
+             R+
+Sbjct  553  ARV  555
+
+
+>CBF86833.1 TPA: SH3 domain protein (AFU_orthologue; AFUA_2G13880) [Aspergillus 
+nidulans FGSC A4]
+Length=914
+
+ Score = 40.8 bits (94),  Expect = 0.003, Method: Compositional matrix adjust.
+ Identities = 22/72 (31%), Positives = 34/72 (47%), Gaps = 13/72 (18%)
+
+Query  10  GDVDPDLKCALCHKVLEDPLT-TPCGHVFCAGCVLPWVVQEGS-----------CPARCR  57
+           GD++ +L C++C ++L  PLT   C H FC  C+  W   + S           CP+ CR
+Sbjct  12  GDLEKELTCSICTELLFQPLTLLDCLHTFCGSCLKEWFYTQASRRPSTTTPRYTCPS-CR  70
+
+Query  58  GRLSAKELNHVL  69
+            R+     N  +
+Sbjct  71  ARVRETRPNATV  82
+
+
+>XP_659860.1 hypothetical protein AN2256.2 [Aspergillus nidulans FGSC A4]
+ EAA63829.1 hypothetical protein AN2256.2 [Aspergillus nidulans FGSC A4]
+ CBF86480.1 TPA: SNF2 family helicase, putative (AFU_orthologue; AFUA_5G06590) 
+[Aspergillus nidulans FGSC A4]
+Length=972
+
+ Score = 40.4 bits (93),  Expect = 0.003, Method: Compositional matrix adjust.
+ Identities = 16/46 (35%), Positives = 24/46 (52%), Gaps = 1/46 (2%)
+
+Query  18   CALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCRGRLSAK  63
+            C +C  +LE P+ T C H F   C+   +V++  CP  CR  +  K
+Sbjct  730  CPICLDILETPVITACAHAFDHDCIEQVIVRQHKCPI-CRAEIENK  774
+
+
+ Score = 40.4 bits (93),  Expect = 0.003, Method: Compositional matrix adjust.
+ Identities = 16/46 (35%), Positives = 24/46 (52%), Gaps = 1/46 (2%)
+
+Query  18   CALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCRGRLSAK  63
+            C +C  +LE P+ T C H F   C+   +V++  CP  CR  +  K
+Sbjct  730  CPICLDILETPVITACAHAFDHDCIEQVIVRQHKCPI-CRAEIENK  774
+
+
+>CBF90320.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+A4]
+Length=192
+
+ Score = 38.5 bits (88),  Expect = 0.004, Method: Compositional matrix adjust.
+ Identities = 23/77 (30%), Positives = 35/77 (45%), Gaps = 17/77 (22%)
+
+Query  18   CALCHKVLEDPLTTPCGHVFCAGCVLPWVVQ-------------EGSCPARCRGRLSAKE  64
+            C +C +  +D   T CGH+FC  C++ W+                G CP +CR  LS  +
+Sbjct  104  CPVCMETPKDATATICGHLFCHKCIMEWLATTEEQRADRAGKAPRGLCP-QCRQPLSGVD  162
+
+Query  65   LNHVLPLKRLILKLDIK  81
+                +  KR ++ L IK
+Sbjct  163  ---AIGSKRNLVPLQIK  176
+
+
+>XP_681024.1 hypothetical protein AN7755.2 [Aspergillus nidulans FGSC A4]
+ Q5AVC5.1 RecName: Full=Pre-mRNA-splicing factor cwc24 [Aspergillus nidulans 
+FGSC A4]
+ EAA61543.1 hypothetical protein AN7755.2 [Aspergillus nidulans FGSC A4]
+ CBF80042.1 TPA: Pre-mRNA-splicing factor cwc24 [Source:UniProtKB/Swiss-Prot;Acc:Q5AVC5] 
+[Aspergillus nidulans FGSC A4]
+Length=332
+
+ Score = 39.3 bits (90),  Expect = 0.006, Method: Composition-based stats.
+ Identities = 21/56 (38%), Positives = 28/56 (50%), Gaps = 4/56 (7%)
+
+Query  18   CALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCRGRLS----AKELNHVL  69
+            C +C K  ++P+ T CGH FC  C L    +  SC A   G       AK+LN +L
+Sbjct  241  CIICKKPYQNPIVTKCGHYFCESCALQRYRKNPSCAACGAGTGGVFNVAKKLNGLL  296
+
+
+>CBF78678.1 TPA: PHD and RING finger domain protein, putative (AFU_orthologue; 
+AFUA_2G16870) [Aspergillus nidulans FGSC A4]
+Length=614
+
+ Score = 37.4 bits (85),  Expect = 0.028, Method: Compositional matrix adjust.
+ Identities = 15/35 (43%), Positives = 20/35 (57%), Gaps = 1/35 (3%)
+
+Query  32  PCGHVFCAGCVLPWVVQEGSCPARCRGRLSAKELN  66
+           PCGH+    C+ PWV +  SCP  CR   +  EL+
+Sbjct  58  PCGHILHNNCLKPWVERANSCPI-CRRTFNEVELS  91
+
+
+>XP_680563.1 hypothetical protein AN7294.2 [Aspergillus nidulans FGSC A4]
+ EAA61345.1 hypothetical protein AN7294.2 [Aspergillus nidulans FGSC A4]
+Length=710
+
+ Score = 37.0 bits (84),  Expect = 0.038, Method: Compositional matrix adjust.
+ Identities = 15/35 (43%), Positives = 20/35 (57%), Gaps = 1/35 (3%)
+
+Query  32   PCGHVFCAGCVLPWVVQEGSCPARCRGRLSAKELN  66
+            PCGH+    C+ PWV +  SCP  CR   +  EL+
+Sbjct  154  PCGHILHNNCLKPWVERANSCPI-CRRTFNEVELS  187
+
+
+>XP_681970.1 hypothetical protein AN8701.2 [Aspergillus nidulans FGSC A4]
+ EAA60250.1 hypothetical protein AN8701.2 [Aspergillus nidulans FGSC A4]
+ CBF78204.1 TPA: WD repeat protein (AFU_orthologue; AFUA_6G02410) [Aspergillus 
+nidulans FGSC A4]
+Length=1462
+
+ Score = 37.0 bits (84),  Expect = 0.044, Method: Compositional matrix adjust.
+ Identities = 16/33 (48%), Positives = 20/33 (61%), Gaps = 2/33 (6%)
+
+Query  16    LKCALCHKVLEDPLTT--PCGHVFCAGCVLPWV  46
+             L CA+CH+V+E  LT    CGHV C  C   W+
+Sbjct  1281  LPCAICHEVVEGMLTPCLGCGHVCCFSCYRDWL  1313
+
+
+>XP_663653.1 hypothetical protein AN6049.2 [Aspergillus nidulans FGSC A4]
+ EAA58024.1 hypothetical protein AN6049.2 [Aspergillus nidulans FGSC A4]
+ CBF70288.1 TPA: RING finger domain protein, putative (AFU_orthologue; AFUA_2G09640) 
+[Aspergillus nidulans FGSC A4]
+Length=531
+
+ Score = 35.8 bits (81),  Expect = 0.078, Method: Compositional matrix adjust.
+ Identities = 17/48 (35%), Positives = 23/48 (48%), Gaps = 5/48 (10%)
+
+Query  14   PDLKCALCHKVL---EDPLTTPCGHVFCAGCVLPWVVQ-EGSCPARCR  57
+            P+  C +C       +D    PC H F   C+ PW+V   G+CP  CR
+Sbjct  363  PNFSCPICTDDFIKGQDLRVLPCNHQFHPECIDPWLVNVSGTCPL-CR  409
+
+
+>XP_664498.1 hypothetical protein AN6894.2 [Aspergillus nidulans FGSC A4]
+ Q5AXT6.1 RecName: Full=Peptidyl-prolyl cis-trans isomerase-like 2; Short=PPIase; 
+AltName: Full=Cyclophilin-60; AltName: Full=Cyclophilin-like 
+protein Cyp-60; AltName: Full=RING-type E3 ubiquitin 
+transferase isomerase-like 2; AltName: Full=Rotamase [Aspergillus 
+nidulans FGSC A4]
+ EAA58293.1 hypothetical protein AN6894.2 [Aspergillus nidulans FGSC A4]
+ CBF71677.1 TPA: Peptidyl-prolyl cis-trans isomerase-like 2 (PPIase)(Rotamase)(EC 
+5.2.1.8)(Cyclophilin-60)(Cyclophilin-like protein Cyp-60) 
+[Source:UniProtKB/Swiss-Prot;Acc:Q5AXT6] [Aspergillus 
+nidulans FGSC A4]
+Length=580
+
+ Score = 35.4 bits (80),  Expect = 0.099, Method: Compositional matrix adjust.
+ Identities = 52/226 (23%), Positives = 86/226 (38%), Gaps = 25/226 (11%)
+
+Query  18   CALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCRGRLSAKEL-----------N  66
+            C+L  +  E P+ T  G +F    +LPW+ + G+ P      L   +L            
+Sbjct  49   CSLSLQPFEHPVCTQSGTIFDLTSILPWIKKHGTNPVDGT-PLKGSDLIKLTIAKNDAGE  107
+
+Query  67   HVLPLKRLILKLDIKCAYATRGCGRVVKLQQLPEHLERCDFAPARCRHAGCGQVLLRRDV  126
+            ++ P+   +L  D     A R  G V       + +ER +      R     +   R+D+
+Sbjct  108  YIDPVTYKVL-TDNTHVVALRNTGNVFAW----DTIERLNIKGKMWRDLVSDEEFTRKDI  162
+
+Query  127  ----EAHMRDACDARPVGRCQEG-CGLPLTHGEQR--AGGHCCARALRAHNGALQARLGA  179
+                +    ++ D       +EG  GL      +R     +    AL +    L+AR  A
+Sbjct  163  ITLQDPQNIESRDLSRFNHIKEGESGLSDEQLREREDPSRNVNVNALGSSAKILKARE-A  221
+
+Query  180  LHKALKKEALRAGKREKSLVAQLAAAQLELQMTALRYQKKFTEYSA  225
+            + KA ++ A +AG    + VA+  A     Q TA     K   Y+A
+Sbjct  222  VAKARQERAQKAGNAASTPVAKTDAPVKSAQKTASYQSGKPVPYNA  267
+
+
+>XP_868803.1 hypothetical protein AN9421.2 [Aspergillus nidulans FGSC A4]
+ EAA66838.1 hypothetical protein AN9421.2 [Aspergillus nidulans FGSC A4]
+ CBF84777.1 TPA: RING finger domain protein, putative (AFU_orthologue; AFUA_8G03900) 
+[Aspergillus nidulans FGSC A4]
+Length=411
+
+ Score = 35.0 bits (79),  Expect = 0.12, Method: Compositional matrix adjust.
+ Identities = 20/49 (41%), Positives = 25/49 (51%), Gaps = 4/49 (8%)
+
+Query  9    DGDVDPDLKCALCHKVLEDPLTT---PCGHVFCAGCVLPWVV-QEGSCP  53
+            D D  P   CA+C  ++ED        CGH F A CV PW+  +  SCP
+Sbjct  226  DLDTSPGDSCAICLDLIEDDDDIRGLSCGHAFHASCVDPWLTSRRASCP  274
+
+
+>XP_662983.1 hypothetical protein AN5379.2 [Aspergillus nidulans FGSC A4]
+ EAA62539.1 hypothetical protein AN5379.2 [Aspergillus nidulans FGSC A4]
+ CBF82006.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+A4]
+Length=365
+
+ Score = 33.1 bits (74),  Expect = 0.46, Method: Compositional matrix adjust.
+ Identities = 18/58 (31%), Positives = 30/58 (52%), Gaps = 5/58 (9%)
+
+Query  499  LIARPELQLDEGWMDDDRNDFL----DDLHMDMLEEQHHQAMQFTASVLQQKKHDEDG  552
+            L+A   + L  GW++  RN F     +D H+ ML   H +  Q   +++  K+HD+ G
+Sbjct  300  LLATIRIALPPGWLNTRRNAFANESHNDYHVRMLTVLHLRMAQLLLAII-CKRHDDYG  356
+
+
+>XP_658413.1 hypothetical protein AN0809.2 [Aspergillus nidulans FGSC A4]
+ EAA65639.1 hypothetical protein AN0809.2 [Aspergillus nidulans FGSC A4]
+ CBF88741.1 TPA: DNA-directed RNA polymerase Fragment (EC 2.7.7.6) [Source:UniProtKB/TrEMBL;Acc:Q873Q6] 
+[Aspergillus nidulans FGSC A4]
+Length=1745
+
+ Score = 33.1 bits (74),  Expect = 0.64, Method: Compositional matrix adjust.
+ Identities = 24/97 (25%), Positives = 38/97 (39%), Gaps = 7/97 (7%)
+
+Query  766   STPLTLEISPDNSLRRAAEGISCPSSEGAVGTTEAYGPASKNLLSITEDPEVGTPTYSPS  825
+             ++P     SP  S    A G + P+S     T+  + P S N           +P++SP+
+Sbjct  1608  ASPSFAPTSPAYSPTSPAYGQASPTSPSYSPTSPGFSPTSPNYSPT-------SPSFSPT  1660
+
+Query  826   LKELDPNQPLESKERRASDGSRSPTPSQKLGSAYLPS  862
+                  P  P  S    A  G+R  +P+      Y P+
+Sbjct  1661  SPAFSPTSPSYSPTSPAIGGARHLSPTSPTSPKYTPT  1697
+
+
+>XP_659513.1 hypothetical protein AN1909.2 [Aspergillus nidulans FGSC A4]
+ EAA65074.1 hypothetical protein AN1909.2 [Aspergillus nidulans FGSC A4]
+ CBF85805.1 TPA: conserved hypothetical protein [Aspergillus nidulans FGSC 
+A4]
+Length=230
+
+ Score = 32.3 bits (72),  Expect = 0.69, Method: Compositional matrix adjust.
+ Identities = 20/59 (34%), Positives = 26/59 (44%), Gaps = 11/59 (19%)
+
+Query  6    DRFD----GDVDPDLKCALCHKVLED---PLTT--PC--GHVFCAGCVLPWVVQEGSCP  53
+            DR D      + P+  C +C     D   PL    PC   H+F   CV PW+   G+CP
+Sbjct  138  DRLDRVPRSSLKPEQACPICSNPFLDDKYPLVVRLPCHPTHLFDLECVRPWLRLRGTCP  196
+
+
+>XP_662241.1 hypothetical protein AN4637.2 [Aspergillus nidulans FGSC A4]
+ EAA60439.1 hypothetical protein AN4637.2 [Aspergillus nidulans FGSC A4]
+ CBF77094.1 TPA: PA and RING finger domain protein (AFU_orthologue; AFUA_2G02470) 
+[Aspergillus nidulans FGSC A4]
+Length=812
+
+ Score = 32.7 bits (73),  Expect = 0.72, Method: Compositional matrix adjust.
+ Identities = 15/48 (31%), Positives = 26/48 (54%), Gaps = 6/48 (13%)
+
+Query  16   LKCALCHKVLEDP----LTTPCGHVFCAGCVLPWV-VQEGSCPARCRG  58
+            ++C +C +   D     ++ PCGH F   C+ PW+  +  +CP  C+G
+Sbjct  676  IECVVCLEEYIDGQSRVMSLPCGHEFHVECITPWLTTRRRTCPI-CKG  722
+
+
+>CBF69910.1 TPA: RING finger domain protein, putative (AFU_orthologue; AFUA_2G13310) 
+[Aspergillus nidulans FGSC A4]
+Length=439
+
+ Score = 32.3 bits (72),  Expect = 1.0, Method: Compositional matrix adjust.
+ Identities = 16/44 (36%), Positives = 23/44 (52%), Gaps = 4/44 (9%)
+
+Query  17   KCALCH---KVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCR  57
+            +C++C    KV ++    PC H F   C+  W+ Q  SCP  CR
+Sbjct  315  ECSICMDAVKVGDEVTVLPCTHWFHPQCIELWLNQHNSCP-HCR  357
+
+
+>XP_660922.1 hypothetical protein AN3318.2 [Aspergillus nidulans FGSC A4]
+ EAA63286.1 hypothetical protein AN3318.2 [Aspergillus nidulans FGSC A4]
+ CBF82965.1 TPA: Patatin-like serine hydrolase, putative (AFU_orthologue; 
+AFUA_8G06310) [Aspergillus nidulans FGSC A4]
+Length=1678
+
+ Score = 32.3 bits (72),  Expect = 1.1, Method: Compositional matrix adjust.
+ Identities = 16/46 (35%), Positives = 20/46 (43%), Gaps = 16/46 (35%)
+
+Query  15   DLKCALCHKVLEDPLTTPCGHVFCAGCVLPWVVQEGSCPARCRGRL  60
+            D++C  C+         PCGHVFC  C   W    G  P   R R+
+Sbjct  160  DMRCYFCY---------PCGHVFCDRC---W----GRSPPHVRKRV  189
+
+
+>XP_680575.1 hypothetical protein AN7306.2 [Aspergillus nidulans FGSC A4]
+ EAA61357.1 hypothetical protein AN7306.2 [Aspergillus nidulans FGSC A4]
+Length=1182
+
+ Score = 31.6 bits (70),  Expect = 1.9, Method: Compositional matrix adjust.
+ Identities = 12/40 (30%), Positives = 18/40 (45%), Gaps = 0/40 (0%)
+
+Query  10    GDVDPDLKCALCHKVLEDPLTTPCGHVFCAGCVLPWVVQE  49
+              D D    C +C   L +P     G+V+C  C+  W+  E
+Sbjct  1069  ADSDAASSCPVCLNQLTNPTACQTGYVYCYVCIFHWLNGE  1108
+
+
+>XP_663087.1 hypothetical protein AN5483.2 [Aspergillus nidulans FGSC A4]
+ EAA62643.1 hypothetical protein AN5483.2 [Aspergillus nidulans FGSC A4]
+ CBF81824.1 TPA: ATP-dependent DNA helicase (Eurofung) [Aspergillus nidulans 
+FGSC A4]
+Length=1184
+
+ Score = 31.6 bits (70),  Expect = 1.9, Method: Compositional matrix adjust.
+ Identities = 21/93 (23%), Positives = 42/93 (45%), Gaps = 14/93 (15%)
+
+Query  15   DLKCALCHKVLEDPLTT-PCGHVFCAGCVL-----PWVVQEG-------SCPARCRGRLS  61
+            +L+C +C   +++P+   PCGH  C+ C          +Q+G        CP  CRG + 
+Sbjct  831  NLECPVCIDAVDNPIIFFPCGHGTCSECFSRISDPSLSLQQGIDGAAQVKCP-NCRGVVD  889
+
+Query  62   AKELNHVLPLKRLILKLDIKCAYATRGCGRVVK  94
+             K++   +  +++    + + +    G G  +K
+Sbjct  890  PKKITDHVSFRKVHFPDESEDSAGLGGLGIAIK  922
+
+
+>XP_659795.1 hypothetical protein AN2191.2 [Aspergillus nidulans FGSC A4]
+ EAA64235.1 hypothetical protein AN2191.2 [Aspergillus nidulans FGSC A4]
+Length=320
+
+ Score = 30.4 bits (67),  Expect = 3.3, Method: Compositional matrix adjust.
+ Identities = 30/127 (24%), Positives = 53/127 (42%), Gaps = 13/127 (10%)
+
+Query  443  DDIGIYISEIDPNSIAAKDGRIREGDRIIQINGIEVQNREEAVALLTSEENKNFSLL---  499
+            +D+G +    D NS+ + DGR+++      ++  E +     VA         F +L   
+Sbjct  98   EDLGFHEQGSDTNSLESMDGRVKD------VSFKECREASGTVAYRLIWAYDWFPVLKRL  151
+
+Query  500  --IARPELQLDEGWMDDDRNDFLDDLHMDMLEEQHHQAMQF-TASVLQQKKHDEDGGTTD  556
+              +  P  +   G +D D N  LDD    M+E++   A    T  ++ +     + G+  
+Sbjct  152  SKVLSPYYR-KLGKLDADWNGILDDFFTAMMEDKKGAAHNLETGEIVAEISIMMNAGSDT  210
+
+Query  557  TATILSN  563
+            TA  L N
+Sbjct  211  TAIALRN  217
+
+
+>CBF88903.1 TPA: RING zinc finger protein, putative (AFU_orthologue; AFUA_1G13920) 
+[Aspergillus nidulans FGSC A4]
+Length=1626
+
+ Score = 30.4 bits (67),  Expect = 4.1, Method: Compositional matrix adjust.
+ Identities = 14/53 (26%), Positives = 26/53 (49%), Gaps = 9/53 (17%)
+
+Query  17    KCALCHKVLEDPLTTP------CGHVFCAGCVLPWV--VQEGSCPARCRGRLS  61
+             +CA+C+ V+   + TP      C + F + C+  W     + +CP  CR + +
+Sbjct  1573  ECAICYSVISTDMQTPNKRCATCKNAFHSVCLYRWFKSSNQSTCPL-CRNQFT  1624
+
+
+ Score = 30.4 bits (67),  Expect = 4.1, Method: Compositional matrix adjust.
+ Identities = 14/53 (26%), Positives = 26/53 (49%), Gaps = 9/53 (17%)
+
+Query  17    KCALCHKVLEDPLTTP------CGHVFCAGCVLPWV--VQEGSCPARCRGRLS  61
+             +CA+C+ V+   + TP      C + F + C+  W     + +CP  CR + +
+Sbjct  1573  ECAICYSVISTDMQTPNKRCATCKNAFHSVCLYRWFKSSNQSTCPL-CRNQFT  1624
+
+
+>XP_659092.1 hypothetical protein AN1488.2 [Aspergillus nidulans FGSC A4]
+ EAA64618.1 hypothetical protein AN1488.2 [Aspergillus nidulans FGSC A4]
+ CBF84968.1 TPA: RING finger protein (AFU_orthologue; AFUA_8G04840) [Aspergillus 
+nidulans FGSC A4]
+Length=775
+
+ Score = 30.4 bits (67),  Expect = 4.5, Method: Compositional matrix adjust.
+ Identities = 11/30 (37%), Positives = 17/30 (57%), Gaps = 1/30 (3%)
+
+Query  28   PLTTPCGHVFCAGCVLPWVVQEGSCPARCR  57
+            P   PCGH+    C+  W+ ++ +CP  CR
+Sbjct  368  PKKLPCGHILHFSCLRSWLERQQNCPT-CR  396
+
+
+>CBF82857.1 TPA: anaphase promoting complex subunit Apc11, putative (AFU_orthologue; 
+AFUA_7G01380) [Aspergillus nidulans FGSC A4]
+Length=104
+
+ Score = 28.5 bits (62),  Expect = 4.5, Method: Compositional matrix adjust.
+ Identities = 19/52 (37%), Positives = 26/52 (50%), Gaps = 6/52 (12%)
+
+Query  33  CGHVFCAGCVLPWVVQE---GSCPARCRGRLSAKELNHVLPLKRLILKLDIK  81
+           CGH F   C++ W+ QE   G CP  CR  +S  +L   LP     L+ + K
+Sbjct  52  CGHSFHMHCLMTWIQQESSKGLCPM-CRQSISTLQLQ--LPSANSWLEFEWK  100
+
+
+>XP_682077.1 hypothetical protein AN8808.2 [Aspergillus nidulans FGSC A4]
+ EAA60601.1 hypothetical protein AN8808.2 [Aspergillus nidulans FGSC A4]
+ CBF77981.1 TPA: hypothetical protein ANIA_08808 [Aspergillus nidulans FGSC 
+A4]
+Length=335
+
+ Score = 29.6 bits (65),  Expect = 5.0, Method: Composition-based stats.
+ Identities = 18/68 (26%), Positives = 33/68 (49%), Gaps = 5/68 (7%)
+
+Query  309  GRDLSRATHDQAVEAFKTAKEPIVVQVLRRTPRTKMFTPPSESQLVDTGTQTDITFEHIM  368
+            G D S  T ++  E+      PI+  + R+ P++K  T P+ + + DT T   +   ++ 
+Sbjct  113  GHDESSLTDERTFESLYI--NPILDVLERQNPKSKFLTAPTHNGVFDTSTDQTL---YLW  167
+
+Query  369  ALTKMSSP  376
+              +K S P
+Sbjct  168  VDSKTSGP  175
+
+
+>XP_659505.1 hypothetical protein AN1901.2 [Aspergillus nidulans FGSC A4]
+ EAA65066.1 hypothetical protein AN1901.2 [Aspergillus nidulans FGSC A4]
+ CBF85786.1 TPA: Cytochrome P450 sterol 14 alpha-demethylase [Source:UniProtKB/TrEMBL;Acc:Q9P462] 
+[Aspergillus nidulans FGSC A4]
+Length=511
+
+ Score = 29.6 bits (65),  Expect = 7.3, Method: Compositional matrix adjust.
+ Identities = 30/107 (28%), Positives = 45/107 (42%), Gaps = 23/107 (21%)
+
+Query  336  LRRTPRTKMFTP---------PSESQLVDTGTQTDITFEHIMALTKMSSPSPPVLDPYLL  386
+            L+R PRT  F P         P    ++    +  ++   I  L K+ +P P    PY++
+Sbjct  323  LKRDPRTGAFEPLQYKDLDLLPLHQNVIKETLRVHLSIHSI--LRKVKNPIPVPDTPYII  380
+
+Query  387  PEEH-----PSA---HEYYDPNDYIGDIH----QEMDREELELEEVD  421
+            P  H     P A    + Y PN  + D H    Q  D+E+ E E +D
+Sbjct  381  PTSHTLLASPGATALSDEYFPNANMWDPHRWENQRPDKEDEEGELID  427
+
+
+>AAF79204.1 cytochrome P450 sterol 14 alpha-demethylase [Aspergillus nidulans]
+Length=511
+
+ Score = 29.3 bits (64),  Expect = 7.9, Method: Compositional matrix adjust.
+ Identities = 30/107 (28%), Positives = 45/107 (42%), Gaps = 23/107 (21%)
+
+Query  336  LRRTPRTKMFTP---------PSESQLVDTGTQTDITFEHIMALTKMSSPSPPVLDPYLL  386
+            L+R PRT  F P         P    ++    +  ++   I  L K+ +P P    PY++
+Sbjct  323  LKRDPRTGAFEPLQYKDLDLLPLHQNVIKETLRVHLSIHSI--LRKVKNPIPVPDTPYII  380
+
+Query  387  PEEH-----PSA---HEYYDPNDYIGDIH----QEMDREELELEEVD  421
+            P  H     P A    + Y PN  + D H    Q  D+E+ E E +D
+Sbjct  381  PTSHTLLASPGATALSDEYFPNANMWDPHRWENQRPDKEDEEGELID  427
+
+
+>XP_659353.1 hypothetical protein AN1749.2 [Aspergillus nidulans FGSC A4]
+ EAA64035.1 hypothetical protein AN1749.2 [Aspergillus nidulans FGSC A4]
+Length=550
+
+ Score = 29.3 bits (64),  Expect = 9.0, Method: Compositional matrix adjust.
+ Identities = 19/64 (30%), Positives = 29/64 (45%), Gaps = 3/64 (5%)
+
+Query  336  LRRTPRTKMFTPPSESQLVDTGTQTDITFEHIMALTK--MSSPSPPVLDPYLLPEEHPSA  393
+            +RR     +   P    L+DT  Q    F HIM L +  +  P   +L   +LP EH   
+Sbjct  401  VRRKGLELLLKAPRREWLLDT-RQYHAIFLHIMRLEEEAIGRPESEILAANILPPEHARI  459
+
+Query  394  HEYY  397
+            H+++
+Sbjct  460  HDFH  463
+
+
+
+Lambda      K        H
+   0.315    0.132    0.385 
+
+Gapped
+Lambda      K        H
+   0.267   0.0410    0.140 
+
+Effective search space used: 5243770560
+
+
+  Database: All non-redundant GenBank CDS translations+PDB+SwissProt+PIR+PRF
+excluding environmental samples from WGS projects
+    Posted date:  Jun 28, 2020 12:00 AM
+  Number of letters in database: 105,960,238,061
+  Number of sequences in database:  294,334,669
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 11
+Window for multiple hits: 40
