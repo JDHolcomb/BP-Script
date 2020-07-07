@@ -11,7 +11,6 @@ import tkinter as tk                        #imports interface to the Tk GUI too
 from tkinter import filedialog
 
 #Files used later in App
-fileDirectory = "C:\\Users\\dmhsh\\OneDrive\\Desktop\\Reck-Peterson Lab\\P-Database Script1"
 currentFastaFile = "currentFasta.txt"
 blastpFile = "blastpResults.out"
 logFileName = "logFile.out"
@@ -23,18 +22,20 @@ wbName = filedialog.askopenfilename()
 print("input name " + wbName)
 wbName = os.path.normpath(wbName)
 print("input name after OS normalization " + wbName)
+outDir = os.path.dirname(wbName) + "\\"
+print("outdir is " + outDir)
 wbOutName = "C:\\RPScript\\Test Data Out.xlsx"  #eventually can save to same Workbook but don't want to overwrite till I know it works
 print("workbook name " + wbName)
 wsName = "Hook1-C"
 wsOutName = wsName +" Processed Data"
 
-#URL and Command Query Hard-coded Strings
+#URL and Command Query 
 uniprotURLString1 = "https://www.uniprot.org/uniprot/?query="
 uniprotURLString2 = "&fil=organism:\"Homo+sapiens+(Human)+[9606]\"&sort=score&columns=id&format=tab"  
 fastaURLString1 = "https://www.uniprot.org/uniprot/"
 fastaURLString2 = ".fasta"
-blastPQuery = 'cmd /c "dir & blastp -db nr -outfmt 10qcovs -query C:\\RPScript\\currentFasta.txt -entrez_query \"Aspergillus Nidulans[ORGN]\" -out C:\\RPScript\\blastpResults.out -remote & dir"'
-
+blastpQuery = 'cmd /c "dir & blastp -db nr -outfmt 10qcovs -query ' + outDir + currentFastaFile + ' -entrez_query \"Aspergillus Nidulans[ORGN]\" -out ' + outDir + blastpFile + ' -remote & dir"'
+print ("new bp query is " + blastpQuery)
 #Hard-coded Parameters used later in App
 foldCheck = 1.6     #foldCheck and pvalueCheck are the conditional formatting for the highlighting of cells
 pvalueCheck = 1.3
@@ -60,7 +61,7 @@ gapsTxt = "Gaps = "             #Delimiter to begin gaps info
 gapsTxtLength = len(gapsTxt)
 
 #Open and set logFile (for debugging purposes)
-logFile = open(fileDirectory+logFileName, "w")
+logFile = open(outDir+logFileName, "w")
 
 #Open and set Spreadsheet up
 wb = openpyxl.load_workbook(wbName)
@@ -121,7 +122,7 @@ for i in range(4, 6): #ws.max_row):               #skip header row start with 2
             fastaURL = fastaURLString1 + currentGene + fastaURLString2
             fastaResponse = requests.get(fastaURL)  
             fasta = fastaResponse.text
-            with open(fileDirectory+currentFastaFile, "w") as fastafile:
+            with open(outDir+currentFastaFile, "w") as fastafile:
                 fastafile.write(fasta)
     
             #run Command Line to query blastp for
@@ -129,11 +130,11 @@ for i in range(4, 6): #ws.max_row):               #skip header row start with 2
             logFile.close()    #closing because os.system command messes up open file
 
             #Command Line blastP Query
-            os.system(blastPQuery)
-            logFile = open(fileDirectory+logFileName, "a")
+            os.system(blastpQuery)
+            logFile = open(outDir+logFileName, "a")
 
             #read blastp results from output file
-            with open(fileDirectory+blastpFile, "r")as blastp:
+            with open(outDir+blastpFile, "r")as blastp:
                 blpl = blastp.readlines()
 
                 #initialize loop variables and flags for blastp
