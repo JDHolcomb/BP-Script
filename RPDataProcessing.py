@@ -87,7 +87,10 @@ gapsCol = colNames.index('Gaps') + 1
 gapsOutOfCol = colNames.index('Gaps Out Of') + 1
 
 #start processing rows of spreadsheet data
-for i in range(4, 6): #ws.max_row):               #skip header row start with 2
+
+topValue = int(input("enter the first row you want processed: ")) + 1
+botValue = int(input("enter the last row you want processed: ")) + 1
+for i in range(topValue, botValue): #ws.max_row):               #skip header row start with 2
     
     #Need to check if gene is empty or whitespace;
     if (not (str(ws.cell(row=i, column=1).value).isspace() or ws.cell(row=i, column=1).value is None)): 
