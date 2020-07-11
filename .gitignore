@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+blastpResults.out
+currentFasta.txt
+logFile.out
+~$Test Data.xlsx
