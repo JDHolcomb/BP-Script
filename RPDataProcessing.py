@@ -85,7 +85,7 @@ positivesCol = colNames.index('Positives') + 1
 positivesOutOfCol = colNames.index('Positives Out Of') + 1
 gapsCol = colNames.index('Gaps') + 1
 gapsOutOfCol = colNames.index('Gaps Out Of') + 1
-
+ 
 #start processing rows of spreadsheet data
 
 topValue = int(input("enter the first row you want processed: ")) + 1
