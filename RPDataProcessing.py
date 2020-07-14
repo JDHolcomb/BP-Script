@@ -24,9 +24,21 @@ wbName = os.path.normpath(wbName)
 print("input name after OS normalization " + wbName)
 outDir = os.path.dirname(wbName) + "\\"
 print("outdir is " + outDir)
-wbOutName = "C:\\RPScript\\Test Data Out.xlsx"  #eventually can save to same Workbook but don't want to overwrite till I know it works
+outName = os.path.basename(wbName)
+print("outName is " + outName)
+(outName,extension) = os.path.splitext(outName)
+print("outName is now " + outName)
+outName = outName + ".csv"
+print("outName is " + outName)
+try:
+    outputFile = open(outName, "x")
+except:
+    print("The output file " + outName + " already exists!")
+    exit()
+
+#wbOutName = "C:\\RPScript\\Test Data Out.xlsx"  #eventually can save to same Workbook but don't want to overwrite till I know it works
 print("workbook name " + wbName)
-wsName = "Hook1-C"
+wsName = "FAM160A1-N"
 wsOutName = wsName +" Processed Data"
 
 #URL and Command Query 
@@ -34,13 +46,24 @@ uniprotURLString1 = "https://www.uniprot.org/uniprot/?query="
 uniprotURLString2 = "&fil=organism:\"Homo+sapiens+(Human)+[9606]\"&sort=score&columns=id&format=tab"  
 fastaURLString1 = "https://www.uniprot.org/uniprot/"
 fastaURLString2 = ".fasta"
-blastpQuery = 'cmd /c "dir & blastp -db nr -query "' + outDir + currentFastaFile + '" -entrez_query \"Aspergillus Nidulans[ORGN]\" -out "' + outDir + blastpFile + '" -remote & dir"'
+blastpQuery = 'cmd /c "dir & blastp -db nr -query "' + outDir + currentFastaFile + '" -entrez_query \"Aspergillus Nidulans[ORGN]\" -out "' + outDir + blastpFile + '" -remote -qcov_hsp_perc 20 & dir"'
 print ("new bp query is " + blastpQuery)
 #Hard-coded Parameters used later in App
 foldCheck = 1.6     #foldCheck and pvalueCheck are the conditional formatting for the highlighting of cells
 pvalueCheck = 1.3
-scoreMin = 40
+scoreMin = 20
 eValueMax = 1
+
+# How to get the results file from the RID
+# Extract the RID from the original blastp output then replace the RID in the following command.
+# The output file name will be the RID-Alignment.txt
+# https://blast.ncbi.nlm.nih.gov/Blast.cgi?RESULTS_FILE=on&RID=GR1RE74P014&FORMAT_TYPE=Text&FORMAT_OBJECT=Alignment&DESCRIPTIONS=100&ALIGNMENTS=100&CMD=Get&DOWNLOAD_TEMPL=Results_All&ADV_VIEW=on
+# Alternatively you can get the XML file
+xmlOutput1 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?RESULTS_FILE=on&RID="
+xmlOutput2 = "&FORMAT_TYPE=XML&FORMAT_OBJECT=Alignment&CMD=Get"
+xmlURL = xmlOutput1 + RID + xmlOutput2
+xmlOutputResponse = requests.get(uniprotURL)
+# Then parse the XML file with https://www.geeksforgeeks.org/xml-parsing-python/
 
 #Initialization of Parameters used later in App
 outRow = 1    #set initial data row
@@ -62,6 +85,9 @@ gapsTxtLength = len(gapsTxt)
 
 #Open and set logFile (for debugging purposes)
 logFile = open(outDir+logFileName, "w")
+
+#output column names to outputfile
+outputFile.write("'NCBI_GENE','log2(fold)','log10(pvalue)','Uniprot Entry (Human)','BlastP Order','Possible Match','Score','Expect','Positives','Positives Out Of','Gaps', 'Gaps Out Of'\n")
 
 #Open and set Spreadsheet up
 wb = openpyxl.load_workbook(wbName)
@@ -85,7 +111,7 @@ positivesCol = colNames.index('Positives') + 1
 positivesOutOfCol = colNames.index('Positives Out Of') + 1
 gapsCol = colNames.index('Gaps') + 1
 gapsOutOfCol = colNames.index('Gaps Out Of') + 1
- 
+
 #start processing rows of spreadsheet data
 
 topValue = int(input("enter the first row you want processed: ")) + 1
@@ -159,7 +185,7 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
                     
 #might want to skip significant table check because not using anything in table                        
                         #check if have reached header for significant protein match table
-                        if "significant" in x and (not sigFlag) :          
+                        if "RID" in x and (not sigFlag) :          
                             sigFlag = True
                             
                         #check if after significant protein match table header and before match information (within significant protein match table)
@@ -279,7 +305,11 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
                 
             #finished processing sequence                     
             logFile.write("Done Processing Sequence\n")
+        else:
+            logFile.write(NCBIgene + " did not meet the minimum requirements and was skipped.")
+
         logFile.write("Done Processing Gene: "+ currentGene +"\n")
         print("Done Processing Gene: "+ currentGene +"\n")
+        
     wb.save(filename = wbOutName)   #save output spreadsheet data after processing each row
 logFile.close()                              
