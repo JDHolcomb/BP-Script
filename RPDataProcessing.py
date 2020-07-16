@@ -26,10 +26,10 @@ def process_bp_output(FullBPOutput):
             #    wsOut.cell(row=outRow, column = NCBI_geneCol).value = NCBIgene 
             #    wsOut.cell(row=outRow, column = log2FoldCol).value = log2Fold
             #    wsOut.cell(row=outRow, column = log10PValueCol).value = log10PValue 
-             #   wsOut.cell(row=outRow, column = uniprotEntryHumanCol).value = currentGene
+            #   wsOut.cell(row=outRow, column = uniprotEntryHumanCol).value = currentGene
             #    wsOut.cell(row=outRow, column = possibleMatchCol).value = "No Potential Matches Found"
             #    outRow = outRow + 1
-           # else:
+            # else:
             #    numMatches = 0
     exit
 
