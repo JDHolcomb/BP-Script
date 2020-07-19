@@ -7,37 +7,100 @@ import os                                   #imports functions for interacting w
 import re                                   #imports regular expression operations
 import openpyxl                             #imports Python Library to read/write 2010 Excel files
 import requests                             #imports gives ability to send HTTP/1.1 request
+import csv                                  #imports functions for csv parsing
 import tkinter as tk                        #imports interface to the Tk GUI toolkit
 from tkinter import filedialog
 import xml.etree.ElementTree as ET
 
-def process_bp_output(FullBPOutput):
-    print("Called process_bp_output")
-    
-    tree = ET.parse(FullBPOutput)
-    root = tree.getroot()
-    for child in root:
-        print (child.tag, child.attrib)
-    
-    print(root.BlastOutput_query)
+#----------------------------------------------------------------------------------
+# Function to process the XML search results retrieved by the RID value 
+#----------------------------------------------------------------------------------
 
-    #handle if no matches and re-set number of matches            
-            #if numMatches == 0:
-            #    wsOut.cell(row=outRow, column = NCBI_geneCol).value = NCBIgene 
-            #    wsOut.cell(row=outRow, column = log2FoldCol).value = log2Fold
-            #    wsOut.cell(row=outRow, column = log10PValueCol).value = log10PValue 
-            #   wsOut.cell(row=outRow, column = uniprotEntryHumanCol).value = currentGene
-            #    wsOut.cell(row=outRow, column = possibleMatchCol).value = "No Potential Matches Found"
-            #    outRow = outRow + 1
-            # else:
-            #    numMatches = 0
-    exit
+# def process_xml_output(FullBPOutput):
+#     print("Called process_xml_output")
+    
+#     tree = ET.parse(FullBPOutput)
+#     root = tree.getroot()
+#     for child in root:
+#         print (child.tag, child.attrib)
+    
+#     print(root.BlastOutput_query)
 
+#     #handle if no matches and re-set number of matches            
+#             #if numMatches == 0:
+#             #    wsOut.cell(row=outRow, column = NCBI_geneCol).value = NCBIgene 
+#             #    wsOut.cell(row=outRow, column = log2FoldCol).value = log2Fold
+#             #    wsOut.cell(row=outRow, column = log10PValueCol).value = log10PValue 
+#             #   wsOut.cell(row=outRow, column = uniprotEntryHumanCol).value = currentGene
+#             #    wsOut.cell(row=outRow, column = possibleMatchCol).value = "No Potential Matches Found"
+#             #    outRow = outRow + 1
+#             # else:
+#             #    numMatches = 0
+#     exit
+
+#----------------------------------------------------------------------------------
+# Function to process the CSV search results retrieved by the RID value 
+#----------------------------------------------------------------------------------
+def process_csv_output(RIDoutput, outName):
+    print("Called process_csv_output on: " + RIDoutput)
+
+    # Open the output file to append to it
+    outputFile = open(outName, "a")
+
+    with open(RIDoutput) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                # skip the column name row
+                print(f'Column names are {", ".join(row)}')
+                line_count += 1
+            else:
+                # Could add filtering to the RID output if desired
+                print(row)
+                outputFile.write(f' {row[0]}, {row[1]}, {row[2]}')
+                line_count += 1
+
+        if line_count < 2:   # then we did not have any results
+            outputFile.write("Nothing found")
+
+
+# def temp_function():
+#     with open(RIDoutput) as csv_file:
+#         csv_reader = csv.reader(csv_file, delimiter=',')
+#         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+#         line_count = 0
+#         for row in csv_reader:
+#             if line_count == 0:
+#                 lambda row, line_num: row.update({"Accession Number": accessionNumber}),                # I probably ruined this. I'm not sure if I made DictReader and DictWriter correctly
+#                 lambda field_names: field_names.insert(0, "Accession Number")
+#                 lambda row, line_num: row.update({"log2 Fold": log2Fold}),
+#                 lambda field_names: field_names.insert(1, "Accession Number")                                        
+#                 lambda row, line_num: row.update({"log10 P-Value": log10PValue}),
+#                 lambda field_names: field_names.insert(2, "Accession Number")
+#                 print(f'Column names are {", ".join(row)}')                      
+#                 line_count += 1
+#             else:
+#                 if row[3] in (None, ""):
+#                     if line_count == 1:
+#                         print('No hits found for this Accession Number.')
+#                         break
+#                     else 
+#                         break                               # use return instead of break? Can I end just this function or would that end the program?     
+#                 else:
+#                     print(row)        
+#                 line_count += 1
+#         print(f'Processed {line_count} lines.')
+
+#----------------------------------------------------------------------------------
+# Main Program
+#----------------------------------------------------------------------------------
 
 #Files used later in App
 currentFastaFile = "currentFasta.txt"
 blastpFile = "blastpResults.out"
 logFileName = "logFile.out"
+output_csv_name = "match_output.csv"
 
 #Set up paths
 root = tk.Tk()
@@ -52,7 +115,7 @@ outName = os.path.basename(wbName)
 print("outName is " + outName)
 (outName,extension) = os.path.splitext(outName)
 print("outName is now " + outName)
-outName = outName + ".csv"
+outName = outDir + outName + "_results.csv"
 print("outName is " + outName)
 try:
     outputFile = open(outName, "w")
@@ -71,9 +134,10 @@ uniprotURLString2 = "&fil=organism:\"Homo+sapiens+(Human)+[9606]\"&sort=score&co
 fastaURLString1 = "https://www.uniprot.org/uniprot/"
 fastaURLString2 = ".fasta"
 
-blastpQuery = 'cmd /c "dir & blastp -db nr -query  "' + outDir + currentFastaFile + '" -entrez_query \"Aspergillus Nidulans[ORGN]\" -out "' + outDir + blastpFile + '" -remote -qcov_hsp_perc 20 -outfmt "7 sseqid qcovs" & dir"'
-#-------------------------------------------------------------------------------------------------------------------------
+#--The primary remote blastp query ---------------------------------------------------------------------------
+blastpQuery = 'cmd /c "dir & blastp -db nr -query  "' + outDir + currentFastaFile + '" -taxids \"227321\"  -out "' + outDir + blastpFile + '" -remote -qcov_hsp_perc 20 -outfmt "7 sseqid" & dir"'
 print ("new bp query is " + blastpQuery)
+
 #Hard-coded Parameters used later in App
 foldCheck = 1.6     #foldCheck and pvalueCheck are the conditional formatting for the highlighting of cells
 pvalueCheck = 1.3
@@ -134,22 +198,20 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
             currentGene = uniprotResponse.text.split('\n')[1]
             print (currentGene)
             
-            #generate URL to get FASTA, and write to output file
+            #generate URL to get FASTA, and write to the fasta file used in the query
             fastaURL = fastaURLString1 + currentGene + fastaURLString2
             fastaResponse = requests.get(fastaURL)  
             fasta = fastaResponse.text
+            logFile.write("Processing Gene: "+ currentGene +"\n")
             with open(outDir+currentFastaFile, "w") as fastafile:
                 fastafile.write(fasta)
-    
-            #run Command Line to query blastp for
-            logFile.write("Processing Gene: "+ currentGene +"\n")
+
+            #run Command Line to query blastp
             logFile.close()    #closing because os.system command messes up open file
+        # os.system(blastpQuery)
+            logFile = open(outDir+logFileName, "a")    # reopening log file
 
-            #Command Line blastP Query
-            os.system(blastpQuery)
-            logFile = open(outDir+logFileName, "a")
-
-            #read blastp results from output file
+            #read blastp results ID (RID) from output file
             with open(outDir+blastpFile, "r")as blastp:
                 blpl = blastp.readlines()
         
@@ -165,21 +227,17 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
                             
                             # How to get the results file from the RID
                             # Extract the RID from the original blastp output then replace the RID in the following command.
-                            # The output file name will be the RID-Alignment.txt
-                            # https://blast.ncbi.nlm.nih.gov/Blast.cgi?RESULTS_FILE=on&RID=GR1RE74P014&FORMAT_TYPE=Text&FORMAT_OBJECT=Alignment&DESCRIPTIONS=100&ALIGNMENTS=100&CMD=Get&DOWNLOAD_TEMPL=Results_All&ADV_VIEW=on
-                            # Alternatively you can get the XML file
-                            xmlOutput1 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?RESULTS_FILE=on&RID="
-                            xmlOutput2 = "&FORMAT_TYPE=XML&FORMAT_OBJECT=Alignment&CMD=Get"
-                            xmlURL = xmlOutput1 + RID + xmlOutput2
-                            xmlOutputResponse = requests.get(xmlURL, allow_redirects=True)
-                            RIDoutput = outDir + RID + "_output.xml"
-                            open(RIDoutput, 'wb').write(xmlOutputResponse.content)
-                            print(xmlURL)
-                            print(RID)
-                            # Then parse the XML file with https://www.geeksforgeeks.org/xml-parsing-python/
+                            Output1 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?RESULTS_FILE=on&RID=H6ZYNBWN01R&FORMAT_TYPE=CSV&DESCRIPTIONS=100&FORMAT_OBJECT=Alignment&QUERY_INDEX=0&DOWNLOAD_TEMPL=Results&CMD=Get&RID="
+                            Output2 = "&ALIGNMENT_VIEW=Pairwise&QUERY_INDEX=0&CONFIG_DESCR=2,3,4,5,6,7,8"
+                            RIDURL = Output1 + RID + Output2
+                            print(RIDURL)
+                        # RIDOutputResponse = requests.get(RIDURL, allow_redirects=True)
+                            RIDoutput = outDir + RID + "_output.csv"
+                        #  open(RIDoutput, 'wb').write(RIDOutputResponse.content)
+                            
+                            # Then parse the RID CSV results file and write the results to the output file
+                            process_csv_output(RIDoutput, outName)
 
-                            #call function to process XML output
-                            process_bp_output(RIDoutput)
                             break #RID found and processed. Leaves for loop.
 
                 if RID == "" :
@@ -193,7 +251,7 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
         logFile.write("Done Processing Gene: "+ currentGene +"\n")
         print("Done Processing Gene: "+ currentGene +"\n")
         
-    wb.save(filename = wbOutName)   #save output spreadsheet data after processing each row
+    # wb.save(filename = wbOutName)   #save output spreadsheet data after processing each row
 logFile.close() 
 
 
