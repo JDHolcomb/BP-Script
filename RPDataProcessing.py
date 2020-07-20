@@ -124,27 +124,22 @@ print("input name " + wbName)
 wbName = os.path.normpath(wbName)
 print("input name after OS normalization " + wbName)
 outDir = os.path.dirname(wbName) + "\\"
-print("outdir is " + outDir)
+#print("outdir is " + outDir)
 outName = os.path.basename(wbName)
-print("outName is " + outName)
+#print("outName is " + outName)
 (outName,extension) = os.path.splitext(outName)
-print("outName is now " + outName)
+#print("outName is now " + outName)
 outName = outDir + outName + "_results.csv"
 print("outName is " + outName)
 addHeaders = False
 try:
     outputFile = open(outName, "r")
     print("The output file " + outName + " already exists! Appending to existing file!")
+    outputFile.close()
 except:
     addHeaders = True
 
-outputFile.close()
 outputFile = open(outName, "a")
-  
-
-print("workbook name " + wbName)
-wsOutName = wsName +" Processed Data"
-print("worksheet name " + wsName)
 
 #URL and Command Query 
 uniprotURLString1 = "https://www.uniprot.org/uniprot/?query="
@@ -153,7 +148,7 @@ fastaURLString1 = "https://www.uniprot.org/uniprot/"
 fastaURLString2 = ".fasta"
 
 #--The primary remote blastp query ---------------------------------------------------------------------------
-blastpQuery = 'cmd /c "dir & blastp -db nr -query  "' + outDir + currentFastaFile + '" -taxids \"227321\"  -out "' + outDir + blastpFile + '" -remote -qcov_hsp_perc 20 -outfmt "7 sseqid" & dir"'
+blastpQuery = 'cmd /c "dir & blastp -db nr -query  "' + outDir + currentFastaFile + '" -entrez_query "Aspergillus nidulans FGSC A4"  -out "' + outDir + blastpFile + '" -remote -qcov_hsp_perc 20 -outfmt "7 sseqid" & dir"'
 print ("new bp query is " + blastpQuery)
 
 #Hard-coded Parameters used later in App
@@ -191,6 +186,10 @@ for sheet in wb:
 wsNumber = int(input("Please enter the number of the worksheet you want processed: "))
 ws = wb[sheetList[wsNumber]]
 print("Working on sheet " + ws.title)
+
+wsOutName = ws.title + " Processed Data"
+print("worksheet name " + ws.title)
+
 #wsOut = wb[wsOutName]
 
 #start processing rows of spreadsheet data
