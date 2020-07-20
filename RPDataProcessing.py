@@ -1,6 +1,6 @@
 #RPDataProcessing.py Python app to process Reck Peterson Lab Data in XLSX format
 #Author: James Holcomb
-#Last Revised: July 4th, 2020
+#Last Revised: July 19th, 2020
 
 #Library imports
 import os                                   #imports functions for interacting with O/S - allows Command Line 
@@ -41,28 +41,42 @@ import xml.etree.ElementTree as ET
 #----------------------------------------------------------------------------------
 # Function to process the CSV search results retrieved by the RID value 
 #----------------------------------------------------------------------------------
-def process_csv_output(RIDoutput, outName):
+def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue):
     print("Called process_csv_output on: " + RIDoutput)
-
-    # Open the output file to append to it
-    outputFile = open(outName, "a")
-
+    
     with open(RIDoutput) as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
+        csv_reader = csv.reader(csv_file, dialect='excel')
         line_count = 0
         for row in csv_reader:
             if line_count == 0:
                 # skip the column name row
-                print(f'Column names are {", ".join(row)}')
                 line_count += 1
             else:
-                # Could add filtering to the RID output if desired
-                print(row)
-                outputFile.write(f' {row[0]}, {row[1]}, {row[2]}')
-                line_count += 1
+                if len(row) > 5:   # avoid garbage lines with tabs and such
+
+                    col_count = 0
+                    for x in row:   
+                        row[col_count] = x.replace('"', '""')   # replace stripped double quotes
+                        if (col_count == 0 or col_count == 6):
+                            row[col_count] = '"' + row[col_count] + '"'   # add quotes to 1st and last string fields
+                        col_count += 1
+
+                    # Could add additional filtering to the RID output if desired
+                    # Output the input data
+                    outputFile.write(gene + "," + fold + "," + pvalue)
+                    #output hit number
+                    outputFile.write(f',{line_count}')
+                    #output the search result data fields we want
+                    outputFile.write(f',{row[0]},{",".join(row[3:])}')
+                    # outputFile.write(f',"{row[7]}"')
+                    outputFile.write("\n")
+                    line_count += 1
 
         if line_count < 2:   # then we did not have any results
-            outputFile.write("Nothing found")
+             # Output the input data
+            outputFile.write(gene + ", " + fold + ", " + pvalue + ", ")
+            outputFile.write("0, 0, 0, 0, No matches found \n")
+
 
 
 # def temp_function():
@@ -117,14 +131,18 @@ print("outName is " + outName)
 print("outName is now " + outName)
 outName = outDir + outName + "_results.csv"
 print("outName is " + outName)
+addHeaders = False
 try:
-    outputFile = open(outName, "w")
+    outputFile = open(outName, "r")
+    print("The output file " + outName + " already exists! Appending to existing file!")
 except:
-    print("The output file " + outName + " already exists!")
-    exit()
+    addHeaders = True
+
+outputFile.close()
+outputFile = open(outName, "a")
+  
 
 print("workbook name " + wbName)
-wsName = "FAM160A1-N"
 wsOutName = wsName +" Processed Data"
 print("worksheet name " + wsName)
 
@@ -156,17 +174,28 @@ ridTxtLength = len(ridTxt)
 #Open and set logFile (for debugging purposes)
 logFile = open(outDir+logFileName, "w")
 
-#output column names to outputfile
-outputFile.write("'NCBI_GENE','log2(fold)','log10(pvalue)','Uniprot Entry (Human)','BlastP Order','Possible Match','Score','Expect','Positives','Positives Out Of','Gaps', 'Gaps Out Of'\n")
+#output column names to outputfile depending on addHeaders Boolean
+if addHeaders == True:
+    print("Putting header into output file")
+    outputFile.write("NCBI_GENE, log2(fold), log10(pvalue), Hit Number, Description, Query Cover, E Value, % Ident, Accession \n")
+#outputFile.close
 
 #Open and set Spreadsheet up
 wb = openpyxl.load_workbook(wbName)
-ws = wb[wsName]
-wsOut = wb[wsOutName]
+ws_count = 0
+sheetList = []
+for sheet in wb:
+    print("% s" %ws_count + ": " + sheet.title)
+    sheetList.append(sheet.title)
+    ws_count+=1
+wsNumber = int(input("Please enter the number of the worksheet you want processed: "))
+ws = wb[sheetList[wsNumber]]
+print("Working on sheet " + ws.title)
+#wsOut = wb[wsOutName]
 
 #start processing rows of spreadsheet data
-topValue = int(input("enter the first row you want processed: ")) + 1
-botValue = int(input("enter the last row you want processed: ")) + 1
+topValue = int(input("Enter the first row you want processed: ")) + 1
+botValue = int(input("Enter the last row you want processed: ")) + 1
 for i in range(topValue, botValue): #ws.max_row):               #skip header row start with 2
     
     #Need to check if gene is empty or whitespace;
@@ -176,14 +205,16 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
 
         #extract log2(fold) and log10(pvalue) data
         try:
-            log2Fold = float(ws.cell(row=i, column=2).value)
+            log2Fold_txt = str(ws.cell(row=i, column=2).value) 
+            log2Fold = float(log2Fold_txt)
         except ValueError:
             logFile.write("ERROR - Expected log2Fold Value\n")
             logFile.write("x: "+ x + "\n")
             break
         
         try:
-            log10PValue = float(ws.cell(row=i, column=3).value)
+            log10PValue_txt = str(ws.cell(row=i, column=3).value)   
+            log10PValue = float(log10PValue_txt)
         except ValueError:
             logFile.write("ERROR - Expected log10PValue Value\n")
             logFile.write("x: "+ x + "\n")
@@ -208,7 +239,7 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
 
             #run Command Line to query blastp
             logFile.close()    #closing because os.system command messes up open file
-        # os.system(blastpQuery)
+            os.system(blastpQuery)
             logFile = open(outDir+logFileName, "a")    # reopening log file
 
             #read blastp results ID (RID) from output file
@@ -231,12 +262,12 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
                             Output2 = "&ALIGNMENT_VIEW=Pairwise&QUERY_INDEX=0&CONFIG_DESCR=2,3,4,5,6,7,8"
                             RIDURL = Output1 + RID + Output2
                             print(RIDURL)
-                        # RIDOutputResponse = requests.get(RIDURL, allow_redirects=True)
+                            RIDOutputResponse = requests.get(RIDURL, allow_redirects=True)
                             RIDoutput = outDir + RID + "_output.csv"
-                        #  open(RIDoutput, 'wb').write(RIDOutputResponse.content)
+                            open(RIDoutput, 'wb').write(RIDOutputResponse.content)
                             
                             # Then parse the RID CSV results file and write the results to the output file
-                            process_csv_output(RIDoutput, outName)
+                            process_csv_output(RIDoutput, outputFile, NCBIgene, log2Fold_txt, log10PValue_txt)
 
                             break #RID found and processed. Leaves for loop.
 
