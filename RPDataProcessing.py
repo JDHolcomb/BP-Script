@@ -224,6 +224,7 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
             
             #generate uniprot URL, and extract gene
             uniprotURL = uniprotURLString1 + ws.cell(row=i, column=1).value+uniprotURLString2
+            print("Gene name is: " + ws.cell(row=i, column=1).value)
             uniprotResponse = requests.get(uniprotURL)
             currentGene = uniprotResponse.text.split('\n')[1]
             print (currentGene)
@@ -233,6 +234,8 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
             fastaResponse = requests.get(fastaURL)  
             fasta = fastaResponse.text
             logFile.write("Processing Gene: "+ currentGene +"\n")
+            print("Processing Uniprot Gene: "+ currentGene +"\n")
+            print("Fasta file path: " + outDir+currentFastaFile)
             with open(outDir+currentFastaFile, "w") as fastafile:
                 fastafile.write(fasta)
 
