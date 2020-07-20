@@ -193,7 +193,7 @@ print("worksheet name " + ws.title)
 #wsOut = wb[wsOutName]
 
 #start processing rows of spreadsheet data
-topValue = int(input("Enter the first row you want processed: ")) + 1
+topValue = int(input("Enter the first row you want processed: "))
 botValue = int(input("Enter the last row you want processed: ")) + 1
 for i in range(topValue, botValue): #ws.max_row):               #skip header row start with 2
     
@@ -260,9 +260,10 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
                             
                             # How to get the results file from the RID
                             # Extract the RID from the original blastp output then replace the RID in the following command.
-                            Output1 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?RESULTS_FILE=on&RID=H6ZYNBWN01R&FORMAT_TYPE=CSV&DESCRIPTIONS=100&FORMAT_OBJECT=Alignment&QUERY_INDEX=0&DOWNLOAD_TEMPL=Results&CMD=Get&RID="
-                            Output2 = "&ALIGNMENT_VIEW=Pairwise&QUERY_INDEX=0&CONFIG_DESCR=2,3,4,5,6,7,8"
-                            RIDURL = Output1 + RID + Output2
+                            Output1 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?RESULTS_FILE=on&RID="
+                            Output2 = "H6ZYNBWN01R&FORMAT_TYPE=CSV&DESCRIPTIONS=100&FORMAT_OBJECT=Alignment&QUERY_INDEX=0&DOWNLOAD_TEMPL=Results&CMD=Get&RID="
+                            Output3 = "&ALIGNMENT_VIEW=Pairwise&QUERY_INDEX=0&CONFIG_DESCR=2,3,4,5,6,7,8"
+                            RIDURL = Output1 + RID + Output2 + RID + Output3
                             print(RIDURL)
                             RIDOutputResponse = requests.get(RIDURL, allow_redirects=True)
                             RIDoutput = outDir + RID + "_output.csv"
