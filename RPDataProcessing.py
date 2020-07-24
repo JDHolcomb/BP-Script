@@ -31,7 +31,7 @@ import xml.etree.ElementTree as ET
 #             #    wsOut.cell(row=outRow, column = NCBI_geneCol).value = NCBIgene 
 #             #    wsOut.cell(row=outRow, column = log2FoldCol).value = log2Fold
 #             #    wsOut.cell(row=outRow, column = log10PValueCol).value = log10PValue 
-#             #   wsOut.cell(row=outRow, column = uniprotEntryHumanCol).value = currentGene
+#             #    wsOut.cell(row=outRow, column = uniprotEntryHumanCol).value = currentProtein
 #             #    wsOut.cell(row=outRow, column = possibleMatchCol).value = "No Potential Matches Found"
 #             #    outRow = outRow + 1
 #             # else:
@@ -47,30 +47,36 @@ def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue):
     with open(RIDoutput) as csv_file:
         csv_reader = csv.reader(csv_file, dialect='excel')
         line_count = 0
+        hit_count = 1
         for row in csv_reader:
             if line_count == 0:
                 # skip the column name row
                 line_count += 1
             else:
                 if len(row) > 5:   # avoid garbage lines with tabs and such
+                    qCov = int(row[3].rstrip("%"))
+                    if qCov < 20:
+                        print("Skipping " + row[0] + " result as QCov is:" + row[3])
+                        line_count += 1
+                    else:
+                        col_count = 0
+                        for x in row:   
+                            row[col_count] = x.replace('"', '""')   # replace stripped double quotes
+                            if (col_count == 0 or col_count == 6):
+                                row[col_count] = '"' + row[col_count] + '"'   # add quotes to 1st and last string fields
+                            col_count += 1
 
-                    col_count = 0
-                    for x in row:   
-                        row[col_count] = x.replace('"', '""')   # replace stripped double quotes
-                        if (col_count == 0 or col_count == 6):
-                            row[col_count] = '"' + row[col_count] + '"'   # add quotes to 1st and last string fields
-                        col_count += 1
-
-                    # Could add additional filtering to the RID output if desired
-                    # Output the input data
-                    outputFile.write(gene + "," + fold + "," + pvalue)
-                    #output hit number
-                    outputFile.write(f',{line_count}')
-                    #output the search result data fields we want
-                    outputFile.write(f',{row[0]},{",".join(row[3:])}')
-                    # outputFile.write(f',"{row[7]}"')
-                    outputFile.write("\n")
-                    line_count += 1
+                        # Could add additional filtering to the RID output if desired
+                        # Output the input data
+                        outputFile.write(gene + "," + fold + "," + pvalue)
+                        #output hit number
+                        outputFile.write(f',{hit_count}')
+                        hit_count += 1
+                        #output the search result data fields we want
+                        outputFile.write(f',{row[0]},{",".join(row[3:])}')
+                        # outputFile.write(f',"{row[7]}"')
+                        outputFile.write("\n")
+                        line_count += 1
 
         if line_count < 2:   # then we did not have any results
              # Output the input data
@@ -148,7 +154,7 @@ fastaURLString1 = "https://www.uniprot.org/uniprot/"
 fastaURLString2 = ".fasta"
 
 #--The primary remote blastp query ---------------------------------------------------------------------------
-blastpQuery = 'cmd /c "dir & blastp -db nr -query  "' + outDir + currentFastaFile + '" -entrez_query "Aspergillus nidulans FGSC A4"  -out "' + outDir + blastpFile + '" -remote -qcov_hsp_perc 20 -outfmt "7 sseqid" & dir"'
+blastpQuery = 'cmd /c "echo "Calling Blastp " & blastp -db nr -query  "' + outDir + currentFastaFile + '" -entrez_query "Aspergillus nidulans FGSC A4"  -out "' + outDir + blastpFile + '" -remote -qcov_hsp_perc 20 -outfmt "7 sseqid" & echo "Blastp Finished""'
 print ("new bp query is " + blastpQuery)
 
 #Hard-coded Parameters used later in App
@@ -194,13 +200,14 @@ print("worksheet name " + ws.title)
 
 #start processing rows of spreadsheet data
 topValue = int(input("Enter the first row you want processed: "))
+topValue = max(2, topValue)
 botValue = int(input("Enter the last row you want processed: ")) + 1
 for i in range(topValue, botValue): #ws.max_row):               #skip header row start with 2
     
-    #Need to check if gene is empty or whitespace;
-    if (not (str(ws.cell(row=i, column=1).value).isspace() or ws.cell(row=i, column=1).value is None)): 
+    NCBIgene = ws.cell(row=i, column=1).value   #extract NCBI Gene information
 
-        NCBIgene = ws.cell(row=i, column=1).value   #extract NCBI Gene information
+    #Need to check if gene is empty or whitespace;
+    if (not (str(NCBIgene).isspace() or NCBIgene is None)): 
 
         #extract log2(fold) and log10(pvalue) data
         try:
@@ -208,7 +215,7 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
             log2Fold = float(log2Fold_txt)
         except ValueError:
             logFile.write("ERROR - Expected log2Fold Value\n")
-            logFile.write("x: "+ x + "\n")
+            logFile.write("x: "+ log2Fold_txt + "\n")
             break
         
         try:
@@ -216,25 +223,26 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
             log10PValue = float(log10PValue_txt)
         except ValueError:
             logFile.write("ERROR - Expected log10PValue Value\n")
-            logFile.write("x: "+ x + "\n")
+            logFile.write("x: "+ log10PValue_txt + "\n")
             break
         
+        #generate uniprot URL, and extract protein
+        uniprotURL = uniprotURLString1 + NCBIgene + uniprotURLString2
+        print("Row " + str(i) + " Gene name is: " + NCBIgene)
+        uniprotResponse = requests.get(uniprotURL)
+        currentProtein = uniprotResponse.text.split('\n')[1]
+        print ("Current protein: " + currentProtein)
+
         #Check if log2(fold) and log10(pvalue) data falls within bounds to check for potential match           
         if (log2Fold > foldCheck and log10PValue > pvalueCheck):     #Highlighting is conditional so checking value for Columns B and C
             
-            #generate uniprot URL, and extract gene
-            uniprotURL = uniprotURLString1 + ws.cell(row=i, column=1).value+uniprotURLString2
-            print("Gene name is: " + ws.cell(row=i, column=1).value)
-            uniprotResponse = requests.get(uniprotURL)
-            currentGene = uniprotResponse.text.split('\n')[1]
-            print (currentGene)
             
             #generate URL to get FASTA, and write to the fasta file used in the query
-            fastaURL = fastaURLString1 + currentGene + fastaURLString2
+            fastaURL = fastaURLString1 + currentProtein + fastaURLString2
             fastaResponse = requests.get(fastaURL)  
             fasta = fastaResponse.text
-            logFile.write("Processing Gene: "+ currentGene +"\n")
-            print("Processing Uniprot Gene: "+ currentGene +"\n")
+            logFile.write("Processing Protein: "+ currentProtein +"\n")
+            print("Processing Uniprot Protein: "+ currentProtein +"\n")
             print("Fasta file path: " + outDir+currentFastaFile)
             with open(outDir+currentFastaFile, "w") as fastafile:
                 fastafile.write(fasta)
@@ -242,6 +250,9 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
             #run Command Line to query blastp
             logFile.close()    #closing because os.system command messes up open file
             os.system(blastpQuery)
+
+#Comment out for debug ^
+
             logFile = open(outDir+logFileName, "a")    # reopening log file
 
             #read blastp results ID (RID) from output file
@@ -261,14 +272,19 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
                             # How to get the results file from the RID
                             # Extract the RID from the original blastp output then replace the RID in the following command.
                             Output1 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?RESULTS_FILE=on&RID="
-                            Output2 = "H6ZYNBWN01R&FORMAT_TYPE=CSV&DESCRIPTIONS=100&FORMAT_OBJECT=Alignment&QUERY_INDEX=0&DOWNLOAD_TEMPL=Results&CMD=Get&RID="
+                            Output2 = "&FORMAT_TYPE=CSV&DESCRIPTIONS=100&FORMAT_OBJECT=Alignment&QUERY_INDEX=0&DOWNLOAD_TEMPL=Results&CMD=Get&RID="
                             Output3 = "&ALIGNMENT_VIEW=Pairwise&QUERY_INDEX=0&CONFIG_DESCR=2,3,4,5,6,7,8"
                             RIDURL = Output1 + RID + Output2 + RID + Output3
                             print(RIDURL)
                             RIDOutputResponse = requests.get(RIDURL, allow_redirects=True)
+
+        #Comment out for debug ^
+
                             RIDoutput = outDir + RID + "_output.csv"
                             open(RIDoutput, 'wb').write(RIDOutputResponse.content)
                             
+        #Comment out for debug ^
+
                             # Then parse the RID CSV results file and write the results to the output file
                             process_csv_output(RIDoutput, outputFile, NCBIgene, log2Fold_txt, log10PValue_txt)
 
@@ -282,8 +298,11 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
         else:
             logFile.write(NCBIgene + " did not meet the minimum requirements and was skipped.")
 
-        logFile.write("Done Processing Gene: "+ currentGene +"\n")
-        print("Done Processing Gene: "+ currentGene +"\n")
+        logFile.write("Done Processing Protein: "+ currentProtein +"\n")
+        print("Done Processing Protein: "+ currentProtein +"\n")
+
+    else:
+        print("Skipping row " + str(i) + " because it is blank \n")
         
     # wb.save(filename = wbOutName)   #save output spreadsheet data after processing each row
 logFile.close() 
