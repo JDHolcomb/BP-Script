@@ -148,8 +148,8 @@ except:
 outputFile = open(outName, "a")
 
 #URL and Command Query 
-uniprotURLString1 = "https://www.uniprot.org/uniprot/?query="
-uniprotURLString2 = "&fil=organism:\"Homo+sapiens+(Human)+[9606]\"&sort=score&columns=id&format=tab"  
+uniprotURLString1 = 'https://www.uniprot.org/uniprot/?query="'
+uniprotURLString2 = '"&fil=organism:\"Homo+sapiens+(Human)+[9606]\"&sort=score&columns=id&format=tab' 
 fastaURLString1 = "https://www.uniprot.org/uniprot/"
 fastaURLString2 = ".fasta"
 
@@ -226,16 +226,19 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
             logFile.write("x: "+ log10PValue_txt + "\n")
             break
         
-        #generate uniprot URL, and extract protein
-        uniprotURL = uniprotURLString1 + NCBIgene + uniprotURLString2
-        print("Row " + str(i) + " Gene name is: " + NCBIgene)
-        uniprotResponse = requests.get(uniprotURL)
-        currentProtein = uniprotResponse.text.split('\n')[1]
-        print ("Current protein: " + currentProtein)
+        currentProtein = "Skipped or No protein found"
+        print("Row " + str(i) + " Gee name is: " + NCBIgene)
 
         #Check if log2(fold) and log10(pvalue) data falls within bounds to check for potential match           
         if (log2Fold > foldCheck and log10PValue > pvalueCheck):     #Highlighting is conditional so checking value for Columns B and C
-            
+         
+            #generate uniprot URL, and extract protein
+            uniprotURL = uniprotURLString1 + NCBIgene + uniprotURLString2
+            #print("uniprotURL is: " + uniprotURL)
+            uniprotResponse = requests.get(uniprotURL)
+            #print ("Uniprot response is " + uniprotResponse.text)
+            currentProtein = uniprotResponse.text.split('\n')[1]
+            print ("Current protein: " + currentProtein)
             
             #generate URL to get FASTA, and write to the fasta file used in the query
             fastaURL = fastaURLString1 + currentProtein + fastaURLString2
