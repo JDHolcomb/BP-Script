@@ -12,36 +12,11 @@ import tkinter as tk                        #imports interface to the Tk GUI too
 from tkinter import filedialog
 import xml.etree.ElementTree as ET
 
-#----------------------------------------------------------------------------------
-# Function to process the XML search results retrieved by the RID value 
-#----------------------------------------------------------------------------------
-
-# def process_xml_output(FullBPOutput):
-#     print("Called process_xml_output")
-    
-#     tree = ET.parse(FullBPOutput)
-#     root = tree.getroot()
-#     for child in root:
-#         print (child.tag, child.attrib)
-    
-#     print(root.BlastOutput_query)
-
-#     #handle if no matches and re-set number of matches            
-#             #if numMatches == 0:
-#             #    wsOut.cell(row=outRow, column = NCBI_geneCol).value = NCBIgene 
-#             #    wsOut.cell(row=outRow, column = log2FoldCol).value = log2Fold
-#             #    wsOut.cell(row=outRow, column = log10PValueCol).value = log10PValue 
-#             #    wsOut.cell(row=outRow, column = uniprotEntryHumanCol).value = currentProtein
-#             #    wsOut.cell(row=outRow, column = possibleMatchCol).value = "No Potential Matches Found"
-#             #    outRow = outRow + 1
-#             # else:
-#             #    numMatches = 0
-#     exit
 
 #----------------------------------------------------------------------------------
 # Function to process the CSV search results retrieved by the RID value 
 #----------------------------------------------------------------------------------
-def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue):
+def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue, remote):
     print("Called process_csv_output on: " + RIDoutput)
     
     with open(RIDoutput) as csv_file:
@@ -49,7 +24,7 @@ def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue):
         line_count = 0
         hit_count = 1
         for row in csv_reader:
-            if line_count == 0:
+            if remote == 1 and line_count == 0:
                 # skip the column name row
                 line_count += 1
             else:
@@ -84,33 +59,47 @@ def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue):
             outputFile.write("0, 0, 0, 0, No matches found \n")
 
 
+#----------------------------------------------------------------------------------
+# Function to parse and use the RID value to get desired results file
+#----------------------------------------------------------------------------------
+def parse_RID(outputFile):
+    #read blastp results ID (RID) from output file
+    with open(outputFile, "r") as blastp:
+        blpl = blastp.readlines()
 
-# def temp_function():
-#     with open(RIDoutput) as csv_file:
-#         csv_reader = csv.reader(csv_file, delimiter=',')
-#         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-#         line_count = 0
-#         for row in csv_reader:
-#             if line_count == 0:
-#                 lambda row, line_num: row.update({"Accession Number": accessionNumber}),                # I probably ruined this. I'm not sure if I made DictReader and DictWriter correctly
-#                 lambda field_names: field_names.insert(0, "Accession Number")
-#                 lambda row, line_num: row.update({"log2 Fold": log2Fold}),
-#                 lambda field_names: field_names.insert(1, "Accession Number")                                        
-#                 lambda row, line_num: row.update({"log10 P-Value": log10PValue}),
-#                 lambda field_names: field_names.insert(2, "Accession Number")
-#                 print(f'Column names are {", ".join(row)}')                      
-#                 line_count += 1
-#             else:
-#                 if row[3] in (None, ""):
-#                     if line_count == 1:
-#                         print('No hits found for this Accession Number.')
-#                         break
-#                     else 
-#                         break                               # use return instead of break? Can I end just this function or would that end the program?     
-#                 else:
-#                     print(row)        
-#                 line_count += 1
-#         print(f'Processed {line_count} lines.')
+        for x in blpl:
+        
+            #check if blank line
+            if not x.isspace():
+                                    
+                #check for RID
+                if "RID:" in x:
+                    RID = x[x.find(ridTxt) + ridTxtLength:]
+                    RID = RID.strip()
+                    
+                    # How to get the results file from the RID
+                    # Extract the RID from the original blastp output then replace the RID in the following command.
+                    Output1 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?RESULTS_FILE=on&RID="
+                    Output2 = "&FORMAT_TYPE=CSV&DESCRIPTIONS=100&FORMAT_OBJECT=Alignment&QUERY_INDEX=0&DOWNLOAD_TEMPL=Results&CMD=Get&RID="
+                    Output3 = "&ALIGNMENT_VIEW=Pairwise&QUERY_INDEX=0&CONFIG_DESCR=2,3,4,5,6,7,8"
+                    RIDURL = Output1 + RID + Output2 + RID + Output3
+                    print(RIDURL)
+                    RIDOutputResponse = requests.get(RIDURL, allow_redirects=True)
+
+#Comment out for debug ^
+
+                    RIDoutput = outDir + RID + "_output.csv"
+                    open(RIDoutput, 'wb').write(RIDOutputResponse.content)
+                    
+#Comment out for debug ^
+
+                    break #RID found and processed. Leaves for loop.
+
+        if RID == "" :
+            print("RID " + ridTxt + " not found in blast output file")
+            return "Failure to get RID"
+        else:
+            return RIDoutput
 
 #----------------------------------------------------------------------------------
 # Main Program
@@ -125,6 +114,12 @@ output_csv_name = "match_output.csv"
 #Set up paths
 root = tk.Tk()
 root.withdraw()
+remote = int(input("Enter 1 to process your file remotely with NCBI servers or enter 2 to process it using a local database: "))
+remote = max(min(remote, 2),1)
+if remote == 1:
+    print("Processing remote.\n")
+else:
+    print("Processing locally, expected db name is nr.00.\n")
 wbName = filedialog.askopenfilename()
 print("input name " + wbName)
 wbName = os.path.normpath(wbName)
@@ -154,7 +149,11 @@ fastaURLString1 = "https://www.uniprot.org/uniprot/"
 fastaURLString2 = ".fasta"
 
 #--The primary remote blastp query ---------------------------------------------------------------------------
-blastpQuery = 'cmd /c "echo "Calling Blastp " & blastp -db nr -query  "' + outDir + currentFastaFile + '" -entrez_query "Aspergillus nidulans FGSC A4"  -out "' + outDir + blastpFile + '" -remote -qcov_hsp_perc 20 -outfmt "7 sseqid" & echo "Blastp Finished""'
+if remote == 1:
+    blastpQuery = 'cmd /c "echo "Calling Blastp " & blastp -db nr -query  "' + outDir + currentFastaFile + '" -entrez_query "Aspergillus nidulans FGSC A4"  -out "' + outDir + blastpFile + '" -remote -qcov_hsp_perc 20 -outfmt "7 sseqid" & echo "Blastp Finished""'
+
+else:
+    blastpQuery = 'cmd /c "echo "Calling Blastp " & blastp -db nr.pal -query  "' + outDir + currentFastaFile + '" -taxids 227321 -out "' + outDir + blastpFile + '" -qcov_hsp_perc 20 -outfmt "10 ssciname score length qcovs evalue pident sacc" & echo "Blastp Finished""'
 print ("new bp query is " + blastpQuery)
 
 #Hard-coded Parameters used later in App
@@ -255,44 +254,15 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
 
             logFile = open(outDir+logFileName, "a")    # reopening log file
 
-            #read blastp results ID (RID) from output file
-            with open(outDir+blastpFile, "r")as blastp:
-                blpl = blastp.readlines()
-        
-                for x in blpl:
+            if remote == 1:
+                RIDoutput = parse_RID(outDir+blastpFile)
                 
-                    #check if blank line
-                    if not x.isspace():
-                                            
-                        #check for RID
-                        if "RID:" in x:
-                            RID = x[x.find(ridTxt) + ridTxtLength:]
-                            RID = RID.strip()
-                            
-                            # How to get the results file from the RID
-                            # Extract the RID from the original blastp output then replace the RID in the following command.
-                            Output1 = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?RESULTS_FILE=on&RID="
-                            Output2 = "&FORMAT_TYPE=CSV&DESCRIPTIONS=100&FORMAT_OBJECT=Alignment&QUERY_INDEX=0&DOWNLOAD_TEMPL=Results&CMD=Get&RID="
-                            Output3 = "&ALIGNMENT_VIEW=Pairwise&QUERY_INDEX=0&CONFIG_DESCR=2,3,4,5,6,7,8"
-                            RIDURL = Output1 + RID + Output2 + RID + Output3
-                            print(RIDURL)
-                            RIDOutputResponse = requests.get(RIDURL, allow_redirects=True)
-
-        #Comment out for debug ^
-
-                            RIDoutput = outDir + RID + "_output.csv"
-                            open(RIDoutput, 'wb').write(RIDOutputResponse.content)
-                            
-        #Comment out for debug ^
-
-                            # Then parse the RID CSV results file and write the results to the output file
-                            process_csv_output(RIDoutput, outputFile, NCBIgene, log2Fold_txt, log10PValue_txt)
-
-                            break #RID found and processed. Leaves for loop.
-
-                if RID == "" :
-                    print("RID " + ridTxt + " not found in blast output file")
-                
+                # Then parse the RID CSV results file and write the desired results to the output file
+                process_csv_output(RIDoutput, outputFile, NCBIgene, log2Fold_txt, log10PValue_txt, remote)
+            else:
+                # Then parse the blastp results file and write the desired results to the output file
+                process_csv_output(outDir+blastpFile, outputFile, NCBIgene, log2Fold_txt, log10PValue_txt, remote)
+ 
             #finished processing sequence                     
             logFile.write("Done Processing Sequence\n")
         else:
