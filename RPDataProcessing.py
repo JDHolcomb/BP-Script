@@ -19,7 +19,6 @@ import imp                                  #imports ability to dynamically impo
 # Function to process the CSV search results retrieved by the RID value 
 #----------------------------------------------------------------------------------
 def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue, remote, removeDups):
-    print("Called process_csv_output on: " + RIDoutput)
     previousAccession = ""
     with open(RIDoutput) as csv_file:
         csv_reader = csv.reader(csv_file, dialect='excel')
@@ -58,7 +57,7 @@ def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue, remote, remove
                             previousAccession = row[6]
                         line_count += 1
 
-        if line_count < 2:   # then we did not have any results
+        if remote == 1 and line_count < 2:   # then we did not have any results
              # Output the input data
             outputFile.write(gene + ", " + fold + ", " + pvalue + ", ")
             outputFile.write("0, 0, 0, 0, No matches found \n")
@@ -243,7 +242,7 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
             break
         
         currentProtein = "Skipped or No protein found"
-        print("Row " + str(i) + " Gee name is: " + NCBIgene)
+        print("Row " + str(i) + " Gene name is: " + NCBIgene)
 
         #Check if log2(fold) and log10(pvalue) data falls within bounds to check for potential match           
         if (log2Fold > foldCheck and log10PValue > pvalueCheck):     #Highlighting is conditional so checking value for Columns B and C
