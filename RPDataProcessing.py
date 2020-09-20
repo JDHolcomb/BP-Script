@@ -11,20 +11,22 @@ import csv                                  #imports functions for csv parsing
 import tkinter as tk                        #imports interface to the Tk GUI toolkit
 from tkinter import filedialog
 import xml.etree.ElementTree as ET
+import sys                                  #imports ability to allow cmd line arguments to be passed to the program
+import imp                                  #imports ability to dynamically import tkinter if operating in non-headless mode
 
 
 #----------------------------------------------------------------------------------
 # Function to process the CSV search results retrieved by the RID value 
 #----------------------------------------------------------------------------------
-def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue, remote):
+def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue, remote, removeDups):
     print("Called process_csv_output on: " + RIDoutput)
-    
+    previousAccession = ""
     with open(RIDoutput) as csv_file:
         csv_reader = csv.reader(csv_file, dialect='excel')
         line_count = 0
         hit_count = 1
         for row in csv_reader:
-            if remote == 1 and line_count == 0:
+            if (remote == 1 and line_count == 0) or ((removeDups[0] == "Y" or removeDups[0] == "y") and row[6] == previousAccession):
                 # skip the column name row
                 line_count += 1
             else:
@@ -35,11 +37,12 @@ def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue, remote):
                         line_count += 1
                     else:
                         col_count = 0
-                        for x in row:   
-                            row[col_count] = x.replace('"', '""')   # replace stripped double quotes
-                            if (col_count == 0 or col_count == 6):
-                                row[col_count] = '"' + row[col_count] + '"'   # add quotes to 1st and last string fields
-                            col_count += 1
+                        if remote == 1:                 # Stripping quotes on remote searches so that the accession hyperlinks work.
+                            for x in row:   
+                                row[col_count] = x.replace('"', '""')   # replace stripped double quotes
+                                if (col_count == 0 or col_count == 6):
+                                    row[col_count] = '"' + row[col_count] + '"'   # add quotes to 1st and last string fields
+                                col_count += 1
 
                         # Could add additional filtering to the RID output if desired
                         # Output the input data
@@ -51,6 +54,8 @@ def process_csv_output(RIDoutput, outputFile, gene, fold, pvalue, remote):
                         outputFile.write(f',{row[0]},{",".join(row[3:])}')
                         # outputFile.write(f',"{row[7]}"')
                         outputFile.write("\n")
+                        if removeDups[0] == "Y" or removeDups[0] == "y":
+                            previousAccession = row[6]
                         line_count += 1
 
         if line_count < 2:   # then we did not have any results
@@ -104,23 +109,34 @@ def parse_RID(outputFile):
 #----------------------------------------------------------------------------------
 # Main Program
 #----------------------------------------------------------------------------------
+#Command line arguments to be passed to program
+print ('Number of arguments:', len(sys.argv), 'arguments.')
+print ('Argument List:', str(sys.argv))
+print ("Current working directory: ", os. getcwd())
+print ("Program name = ", sys.argv[0])
 
 #Files used later in App
 currentFastaFile = "currentFasta.txt"
 blastpFile = "blastpResults.out"
 logFileName = "logFile.out"
 output_csv_name = "match_output.csv"
-
-#Set up paths
-root = tk.Tk()
-root.withdraw()
+# Choice of remote or local database processing
 remote = int(input("Enter 1 to process your file remotely with NCBI servers or enter 2 to process it using a local database: "))
 remote = max(min(remote, 2),1)
 if remote == 1:
     print("Processing remote.\n")
+    removeDups = "N"                    #Have not currently noticed any duplicate results in remote searches.
 else:
-    print("Processing locally, expected db name is nr.00.\n")
-wbName = filedialog.askopenfilename()
+    print("Processing locally, expected db name is nr.\n")
+    removeDups = str(input("Remove duplicated results? Type [Y]es or [N]o. \n"))
+
+if len(sys.argv) > 1:    #This is what occurs if starting with an absolute file path in the command line
+    wbName = sys.argv[1]
+else:                   #This is what occurs if not given an absolute file path (uses Tkinter)
+    root = tk.Tk()
+    root.withdraw()
+    wbName = filedialog.askopenfilename()
+
 print("input name " + wbName)
 wbName = os.path.normpath(wbName)
 print("input name after OS normalization " + wbName)
@@ -142,6 +158,7 @@ except:
 
 outputFile = open(outName, "a")
 
+
 #URL and Command Query 
 uniprotURLString1 = 'https://www.uniprot.org/uniprot/?query="'
 uniprotURLString2 = '"&fil=organism:\"Homo+sapiens+(Human)+[9606]\"&sort=score&columns=id&format=tab' 
@@ -153,7 +170,7 @@ if remote == 1:
     blastpQuery = 'cmd /c "echo "Calling Blastp " & blastp -db nr -query  "' + outDir + currentFastaFile + '" -entrez_query "Aspergillus nidulans FGSC A4"  -out "' + outDir + blastpFile + '" -remote -qcov_hsp_perc 20 -outfmt "7 sseqid" & echo "Blastp Finished""'
 
 else:
-    blastpQuery = 'cmd /c "echo "Calling Blastp " & blastp -db nr.pal -query  "' + outDir + currentFastaFile + '" -taxids 227321 -out "' + outDir + blastpFile + '" -qcov_hsp_perc 20 -outfmt "10 ssciname score length qcovs evalue pident sacc" & echo "Blastp Finished""'
+    blastpQuery = 'cmd /c "echo "Calling Blastp " & blastp -db nr -query  "' + outDir + currentFastaFile + '" -taxids 227321 -out "' + outDir + blastpFile + '" -qcov_hsp_perc 20 -outfmt "10 ssciname score length qcovs evalue pident sacc" & echo "Blastp Finished""'
 print ("new bp query is " + blastpQuery)
 
 #Hard-coded Parameters used later in App
@@ -261,10 +278,10 @@ for i in range(topValue, botValue): #ws.max_row):               #skip header row
                 RIDoutput = parse_RID(outDir+blastpFile)
                 
                 # Then parse the RID CSV results file and write the desired results to the output file
-                process_csv_output(RIDoutput, outputFile, NCBIgene, log2Fold_txt, log10PValue_txt, remote)
+                process_csv_output(RIDoutput, outputFile, NCBIgene, log2Fold_txt, log10PValue_txt, remote, removeDups)
             else:
                 # Then parse the blastp results file and write the desired results to the output file
-                process_csv_output(outDir+blastpFile, outputFile, NCBIgene, log2Fold_txt, log10PValue_txt, remote)
+                process_csv_output(outDir+blastpFile, outputFile, NCBIgene, log2Fold_txt, log10PValue_txt, remote, removeDups)
  
             #finished processing sequence                     
             logFile.write("Done Processing Sequence\n")
