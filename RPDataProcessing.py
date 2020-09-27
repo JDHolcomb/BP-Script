@@ -1,6 +1,6 @@
 #RPDataProcessing.py Python app to process Reck Peterson Lab Data in XLSX format
 #Author: James Holcomb
-#Last Revised: July 19th, 2020
+#Last Revised: September 24th, 2020
 
 #Library imports
 import os                                   #imports functions for interacting with O/S - allows Command Line 
@@ -109,10 +109,10 @@ def parse_RID(outputFile):
 # Main Program
 #----------------------------------------------------------------------------------
 #Command line arguments to be passed to program
-print ('Number of arguments:', len(sys.argv), 'arguments.')
-print ('Argument List:', str(sys.argv))
-print ("Current working directory: ", os. getcwd())
-print ("Program name = ", sys.argv[0])
+#print ('Number of arguments:', len(sys.argv), 'arguments.')
+#print ('Argument List:', str(sys.argv))
+#print ("Current working directory: ", os. getcwd())
+#print ("Program name = ", sys.argv[0])
 
 #Files used later in App
 currentFastaFile = "currentFasta.txt"
