@@ -47,7 +47,7 @@ This links you to the blast help page that talks about downloading the local dat
 
 
 
-# If you have any questions that were not answered by this help page feel free to email me at jdholcom@ucsd.edu
+If you have any questions that were not answered by this help page feel free to email me at jdholcom@ucsd.edu
 
 
 
