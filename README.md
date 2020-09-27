@@ -20,12 +20,9 @@ This program takes large batches of Human protein data from a spreadsheet and pr
 4. Download blastp+ executable on whatever system you have 
   a. At this link ftp://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ (only tested on windows)
 
-
 5. Download the actual program at github link: https://github.com/JDHolcomb/BP-Script 
-If you want to request permission to access the private repo just email me your github username at “jdholcom@ucsd.edu”.
 
-
- 6. Go to File with script and run it 
+6. Go to File with script and run it 
   a. (Optional) If you would like to edit the script then I recommend visual studio code and install a python extension. A link to download Visual studio code: https://code.visualstudio.com/ which is available for Windows, Mac, or Linux.
 
 
