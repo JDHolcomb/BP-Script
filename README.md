@@ -33,7 +33,7 @@ If you want to request permission to access the private repo just email me your 
 # Running the program:
 1. Open a command prompt and go to the directory where you downloaded the repo code and enter “RPDataProcessing.py”.
 2. Program will ask if you would like to process your files using a local database or the remote blastp database, choose whichever you want if you have the local database available.
-3. Program will ask for the input excel file, navigate and select the file you want processed.
+3. Program will ask for the input excel file, navigate and select the file you want processed. (The excel input filename can also be provided as the first parameter if so desired)
 4. Next the program will display a list of the tabs inside of that file and ask you to select the one you want processed, do that.
 5. Choose the lines within your input file that you want processed, make note that this program will append data to the same results file if you process the same file again. This means if you include lines that you already processed the results will show up twice.
 6. The results file will be in the same directory as your input file, named  “yourinputfile_results.csv”.
